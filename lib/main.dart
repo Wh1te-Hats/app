@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pragati_v1/Routes/routes.dart';
 
-
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
 // Map<int, Color> color1 =
 // {
 // 50:Color.fromRGBO(10,30,46, .1),
@@ -22,26 +20,25 @@ class MyApp extends StatelessWidget {
 // 900:Color.fromRGBO(10,30,46, 1),
 // };
 
-final MaterialColor primarySwatch = MaterialColor(0x7E0A1E2E, {
-50:Color.fromRGBO(10,30,46, .1),
-100:Color.fromRGBO(10,30,46, .2),
-200:Color.fromRGBO(10,30,46, .3),
-300:Color.fromRGBO(10,30,46, .4),
-400:Color.fromRGBO(10,30,46, .5),
-500:Color.fromRGBO(10,30,46, .6),
-600:Color.fromRGBO(10,30,46, .7),
-700:Color.fromRGBO(10,30,46, .8),
-800:Color.fromRGBO(10,30,46, .9),
-900:Color.fromRGBO(10,30,46, 1),
-});
+  final MaterialColor primarySwatch = MaterialColor(0x7E0A1E2E, {
+    50: Color.fromRGBO(10, 30, 46, .1),
+    100: Color.fromRGBO(10, 30, 46, .2),
+    200: Color.fromRGBO(10, 30, 46, .3),
+    300: Color.fromRGBO(10, 30, 46, .4),
+    400: Color.fromRGBO(10, 30, 46, .5),
+    500: Color.fromRGBO(10, 30, 46, .6),
+    600: Color.fromRGBO(10, 30, 46, .7),
+    700: Color.fromRGBO(10, 30, 46, .8),
+    800: Color.fromRGBO(10, 30, 46, .9),
+    900: Color.fromRGBO(10, 30, 46, 1),
+  });
   // const MyApp({Key? key}) : super(key: key);
 
   static const String title = 'Pragati';
-  static const Color primaryColor= Color.fromRGBO(10, 30, 46, 1.0);
+  static const Color primaryColor = Color.fromRGBO(10, 30, 46, 1.0);
   static const Color secondary = Color.fromRGBO(87, 199, 96, 1.0);
 
   MyApp({super.key});
-  
 
   MaterialColor buildMaterialColor(Color color) {
     List strengths = <double>[.05];
@@ -68,17 +65,16 @@ final MaterialColor primarySwatch = MaterialColor(0x7E0A1E2E, {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      
       title: MyApp.title,
       theme: ThemeData(
-        primarySwatch:primarySwatch,
+        unselectedWidgetColor: Colors.white,
+        primarySwatch: primarySwatch,
         hintColor: MyApp.secondary,
         fontFamily: 'Aeonik',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                 fontFamily: 'Aeonik',
                 fontSize: 18,
-                
               ),
               button: TextStyle(color: Colors.white),
             ),

@@ -62,31 +62,45 @@ class _HomePageState extends State<HomePage> {
                   //     ),
                   //   ),
                   // ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
                     children: [
-                      customText(
-                          'Welcome',
-                          MyApp.secondary,
-                          22.0,
-                          EdgeInsets.fromLTRB(20.0, 20, 60, 9.0),
-                          FontWeight.w400,
-                          FontStyle.normal),
-                      customText(
-                          'John Doe',
-                          Colors.white,
-                          22.0,
-                          EdgeInsets.fromLTRB(20.0, 2, 50, 9.0),
-                          FontWeight.w400,
-                          FontStyle.normal),
-                      customText(
-                          'Grade 9',
-                          Colors.white,
-                          22.0,
-                          EdgeInsets.fromLTRB(20.0, 2, 60, 9.0),
-                          FontWeight.w400,
-                          FontStyle.normal),
+                       Padding(
+                         padding: const EdgeInsets.fromLTRB(11, 6, 12, 20),
+                         child: CircleAvatar(
+                              radius: 35,
+                              child: Image.asset(
+                                'assets/images/profilepic.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                       ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          customText(
+                              'Welcome',
+                              MyApp.secondary,
+                              22.0,
+                              EdgeInsets.fromLTRB(20.0, 20, 60, 9.0),
+                              FontWeight.w400,
+                              FontStyle.normal),
+                          customText(
+                              'John Doe',
+                              Colors.white,
+                              22.0,
+                              EdgeInsets.fromLTRB(20.0, 2, 50, 9.0),
+                              FontWeight.w400,
+                              FontStyle.normal),
+                          customText(
+                              'Grade 9',
+                              Colors.white,
+                              22.0,
+                              EdgeInsets.fromLTRB(20.0, 2, 60, 9.0),
+                              FontWeight.w400,
+                              FontStyle.normal),
+                        ],
+                      ),
                     ],
                   ),
                 ],
@@ -193,9 +207,9 @@ class _HomePageState extends State<HomePage> {
                                   side: BorderSide(color: MyApp.secondary)),
                             ),
                           ),
-                          onPressed: () => context.go('/typesOfSchools'),
+                          onPressed: () => context.go('/home'),
                           child: Text(
-                            'Schools',
+                            'Jobs',
                             style: TextStyle(fontSize: 24.0),
                           ),
                         ),
@@ -245,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                                   side: BorderSide(color: MyApp.secondary)),
                             ),
                           ),
-                          onPressed: () => context.go('/aspirants'),
+                          onPressed: () => context.go('/home'),
                           child: const Text(
                             'Aspirants',
                             style: TextStyle(fontSize: 24.0),
@@ -305,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                                   side: BorderSide(color: MyApp.secondary)),
                             ),
                           ),
-                          onPressed: () => context.go('/typesOfExams'),
+                          onPressed: () => context.go('/home'),
                           child: const Text(
                             'Exams',
                             style: TextStyle(fontSize: 24.0),
@@ -329,7 +343,7 @@ class _HomePageState extends State<HomePage> {
                                   side: BorderSide(color: MyApp.secondary)),
                             ),
                           ),
-                          onPressed: () => context.go('/otherServices'),
+                          onPressed: () => context.go('/home'),
                           child: Text(
                             'Other Serivces',
                             style: TextStyle(fontSize: 24.0),

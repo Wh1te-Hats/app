@@ -1,42 +1,125 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../Models/aptitude.dart';
+import '../../Widgets/customText.dart';
+import '../../apiService.dart';
 import '../../main.dart';
 
 class mcqTest extends StatefulWidget {
-  const mcqTest({super.key});
+  final String topic;
+
+  const mcqTest({super.key, required this.topic});
 
   @override
   State<mcqTest> createState() => _mcqTestState();
 }
 
-class _mcqTestState extends State<mcqTest> {
+var isLoaded = false;
 
-  final List<Map<String, dynamic>> questions = [
-    {
-      "Question": "Odometer is to mileage as compass is to",
-      "options": ["speed", "hiking", "needle", "direction"],
-    },
-    {
-      "Question": "Marathon is to race as hibernation is to",
-      "options": ["winter", "bear", "dream", "sleep"],
-    },
-    {
-      "Question": "Window is to pane as book is to",
-      "options": ["novel", "glass", "cover", "page"],
-    },
-  ];
+class _mcqTestState extends State<mcqTest> {
+  // final List<Map<String, dynamic>> questions = [   {
+  //     "questionumber": "1.",
+  //     "question_text_html": "<div class=\"bix-td-qtxt table-responsive w-100\"><u>gala</u></div>",
+  //     "options_html": [
+  //       "<div class=\"flex-wrap\">celebration</div>",
+  //       "<div class=\"flex-wrap\">tuxedo</div>",
+  //       "<div class=\"flex-wrap\">appetizer</div>",
+  //       "<div class=\"flex-wrap\">orator</div>"
+  //     ]
+  //   },
+  //   {
+  //     "question_number": "2.",
+  //     "question_text_html": "<div class=\"bix-td-qtxt table-responsive w-100\"><u>champion</u></div>",
+  //     "options_html": [
+  //       "<div class=\"flex-wrap\">running</div>",
+  //       "<div class=\"flex-wrap\">swimming</div>",
+  //       "<div class=\"flex-wrap\">winning</div>",
+  //       "<div class=\"flex-wrap\">speaking</div>"
+  //     ]
+  //   },
+  //   {
+  //     "question_number": "3.",
+  //     "question_text_html": "<div class=\"bix-td-qtxt table-responsive w-100\">Odometer is to mileage as compass is to</div>",
+  //     "options_html": [
+  //       "<div class=\"flex-wrap\">speed</div>",
+  //       "<div class=\"flex-wrap\">hiking</div>",
+  //       "<div class=\"flex-wrap\">needle</div>",
+  //       "<div class=\"flex-wrap\">direction</div>"
+  //     ]
+  //   },
+  //   {
+  //     "question_number": "4.",
+  //     "question_text_html": "<div class=\"bix-td-qtxt table-responsive w-100\">Here are some words translated from an artificial language.<br/>\n<i>gemolinea</i> means fair warning<br/>\n<i>gerimitu</i> means report card<br/>\n<i>gilageri</i> means weather report<br/>\nWhich word could mean \"fair weather\"?</div>",
+  //     "options_html": [
+  //       "<div class=\"flex-wrap\">gemogila</div>",
+  //       "<div class=\"flex-wrap\">gerigeme</div>",
+  //       "<div class=\"flex-wrap\">gemomitu</div>",
+  //       "<div class=\"flex-wrap\">gerimita</div>"
+  //     ]
+  //   },
+  //   {
+  //     "question_number": "5.",
+  //     "question_text_html": "<div class=\"bix-td-qtxt table-responsive w-100\">A fruit basket contains more apples than lemons.<br/>\nThere are more lemons in the basket than there are oranges.<br/>\nThe basket contains more apples than oranges.<br/>\nIf the first two statements are true, the third statement is</div>",
+  //     "options_html": [
+  //       "<div class=\"flex-wrap\">true</div>",
+  //       "<div class=\"flex-wrap\">false</div>",
+  //       "<div class=\"flex-wrap\">uncertain</div>"
+  //     ]
+  //   }];
+  //   {
+  //     "Question": "Odometer is to mileage as compass is to",
+  //     "options": ["speed", "hiking", "needle", "direction"],
+  //   },
+  //   {
+  //     "Question": "Marathon is to race as hibernation is to",
+  //     "options": ["winter", "bear", "dream", "sleep"],
+  //   },
+  //   {
+  //     "Question": "Window is to pane as book is to",
+  //     "options": ["novel", "glass", "cover", "page"],
+  //   },
+  // ];
+
+  late List<Question> questions = [];
+
+  void getData(String id, String topic) async {
+    questions =
+        (await apiCollege().postGeneralAptitude(id, topic)) as List<Question>;
+    if (questions != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Access the endpointURL parameter in the initState method's body
+    final String topic = widget.topic;
+    print(topic);
+    getData('11111', topic);
+    userResponses = List.filled(20, null);
+  }
 
   // A list to store user responses (initially empty)
   late List<int?> userResponses;
 
   @override
-  void initState() {
-    super.initState();
-    userResponses = List.filled(questions.length, null);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // late WebViewController _webViewController;
+
+    // _loadHtml(String data) async {
+    //   String fileHtmlContent = data;
+    //   _webViewController.loadUrl(Uri.dataFromString(fileHtmlContent,
+    //           mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+    //       .toString());
+    // }
+
     return Scaffold(
       backgroundColor: MyApp.primaryColor,
       appBar: AppBar(
@@ -51,58 +134,118 @@ class _mcqTestState extends State<mcqTest> {
           ),
         ],
       ),
-      body: ListView.builder(
-        
-          itemCount: questions.length,
-          itemBuilder: (BuildContext context, int index) {
-            final question = questions[index];
-            return Card(
-              margin: EdgeInsets.all(16.0),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Question ${index + 1}: ${question['Question']}",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: ListView.builder(
+              itemCount: questions.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  margin: EdgeInsets.all(16.0),
+                  child: Container(
+                    color: MyApp.primaryColor.withOpacity(0.88),
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        customText(
+                            "Question ${index + 1} : ${questions[index].questionTextHtml}",
+                            Colors.white,
+                            18.0,
+                            EdgeInsets.fromLTRB(00, 00, 00, 00),
+                            FontWeight.bold,
+                            FontStyle.normal),
+                        // SizedBox(
+                        //   height: 20,
+                        //   child: WebView(
+                        //     initialUrl: "",
+                        //     javascriptMode: JavascriptMode.unrestricted,
+                        //     onWebViewCreated:
+                        //         (WebViewController webViewController) {
+                        //       _webViewController = webViewController;
+                        //       _loadHtml(questions[index].questionTextHtml);
+                        //     },
+                        //   ),
+                        // ),
+                        SizedBox(height: 8.0),
+                        Column(
+                          children: questions[index]
+                              .optionsHtml
+                              .asMap()
+                              .entries
+                              .map<Widget>((entry) {
+                            final int optionIndex = entry.key;
+                            final String optionText = entry.value;
+                            final int? response = userResponses.length > index
+                                ? userResponses[index]
+                                : null;
+                            return RadioListTile(
+                              activeColor: MyApp.secondary,
+                              title: customText(
+                                  optionText,
+                                  Colors.white,
+                                  16.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.normal,
+                                  FontStyle.normal),
+                              value: optionIndex,
+                              // ignore: unnecessary_null_comparison
+                              groupValue: response != null
+                                  ? optionText ==
+                                          questions[index].optionsHtml[response]
+                                      ? optionIndex
+                                      : null
+                                  : null,
+                              onChanged: (int? value) {
+                                userResponses[index] = value!;
+                                setState(() {});
+                                print(userResponses);
+                              },
+                            );
+                          }).toList(),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 8.0),
-                    Column(
-                      children: question["options"]
-                          .asMap()
-                          .entries
-                          .map<Widget>((entry) {
-                        final int optionIndex = entry.key;
-                        final String optionText = entry.value;
-                        final int? response = userResponses.length > index
-                            ? userResponses[index]: null;
-                        return RadioListTile(
-                          title: Text(optionText),
-                          value: optionIndex,
-                          // ignore: unnecessary_null_comparison
-                          groupValue: response != null
-                              ? optionText == question["options"][response]
-                                  ? optionIndex
-                                  : null
-                              : null,
-                          onChanged: (int? value) {
-                            userResponses[index] =value!;
-                            setState(() {});
-                            print(userResponses);
-                          },
-                        );
-                      }).toList(),
+                  ),
+                );
+              },
+            ),
+          ),
+          Center(
+            child: Container(
+              height: 48,
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 5),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(MyApp.secondary),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+                  ),
+                  onPressed: () {
+                    // String name = _textFieldController1.text;
+                    // String password = _textFieldController2.text;
+                    context.go('/currentAnalysis');
+                  },
+                  child: const Text(
+                    'Submit',
+                    style: TextStyle(
+                      fontStyle: FontStyle.normal,
+                      fontSize: 22,
                     ),
-                  ],
+                  ),
                 ),
               ),
-            );
-          },
-        ),
-      );
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

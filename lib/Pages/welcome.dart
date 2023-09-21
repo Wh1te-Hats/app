@@ -49,7 +49,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         CircleBorder(), // Use CircleBorder to make the button circular
                       ),
                     ),
-                    onPressed: () => context.go('/welcome'),
+                    onPressed: () => context.go('/user'),
                     child: const Text(
                       'Student',
                       style: TextStyle(
@@ -73,7 +73,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         CircleBorder(), // Use CircleBorder to make the button circular
                       ),
                     ),
-                    onPressed: () => context.go('/welcome'),
+                    onPressed: () => context.go('/'),
                     child: const Text(
                       'Parent',
                       style: TextStyle(

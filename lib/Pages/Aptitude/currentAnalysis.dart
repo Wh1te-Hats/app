@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../Widgets/pieChart.dart';
 import '../../main.dart';
 
 class CurrentAnalysis extends StatefulWidget {
@@ -14,14 +15,14 @@ class CurrentAnalysis extends StatefulWidget {
 }
 
 class _CurrentAnalysisState extends State<CurrentAnalysis> {
- String filePath = 'files/test.html';
+  String filePath = 'files/test.html';
   late WebViewController _webViewController;
 
-  _loadHtml() async{
-    String fileHtmlContent =  await rootBundle.loadString(filePath);
+  _loadHtml() async {
+    String fileHtmlContent = await rootBundle.loadString(filePath);
     _webViewController.loadUrl(Uri.dataFromString(fileHtmlContent,
-    mimeType:'text/html', 
-    encoding: Encoding.getByName('utf-8')).toString());
+            mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+        .toString());
   }
 
   @override
@@ -40,16 +41,24 @@ class _CurrentAnalysisState extends State<CurrentAnalysis> {
           ),
         ],
       ),
-      body:SizedBox(
-        child: WebView(
-          initialUrl: "",
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (WebViewController webViewController){
-            _webViewController = webViewController;
-            _loadHtml();
-          },
-        ),
+      // body:SizedBox(
+      //   child: WebView(
+      //     initialUrl: "",
+      //     javascriptMode: JavascriptMode.unrestricted,
+      //     onWebViewCreated: (WebViewController webViewController){
+      //       _webViewController = webViewController;
+      //       _loadHtml();
+      //     },
+      //   ),
+      // ),
+      body: Column(
+        children: [
+          Container(
+            height: 300, 
+            child: PieChartSample(),
+          ),
+        ],
       ),
-      );
+    );
   }
 }
