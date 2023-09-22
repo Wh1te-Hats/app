@@ -8,8 +8,7 @@ class PieChartSample extends StatefulWidget {
 }
 
 class _PieChartSampleState extends State<PieChartSample> {
-
-  List<double> radius=[50,30,20];
+  List<double> radius = [50, 30, 20];
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +21,20 @@ class _PieChartSampleState extends State<PieChartSample> {
               color: Color.fromARGB(255, 37, 78, 155),
               value: 30, // Percentage value (e.g., 30%)
               title: 'General Aptitude \n ${radius[0]}%', // Text to display
-              radius: 120, // Adjust the radius as needed
+              radius: 80, // Adjust the radius as needed
             ),
             PieChartSectionData(
               color: Colors.white,
               value: 40, // Percentage value (e.g., 40%)
               title: 'Subject Based \n  ${radius[1]}%', // Text to display
-              radius: 120, // Adjust the radius as needed
+              radius: 80, // Adjust the radius as needed
             ),
             PieChartSectionData(
               color: MyApp.secondary,
               value: 30, // Percentage value (e.g., 30%)
-              title: 'Course Based \n  ${radius[2]}%', // Text to display
-              radius: 120, // Adjust the radius as needed
+              title: 'Course Based \n  ${radius[2]}%',
+              titleStyle: TextStyle(), // Text to display
+              radius: 80, // Adjust the radius as needed
             ),
           ],
         ),

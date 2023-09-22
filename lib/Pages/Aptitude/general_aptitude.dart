@@ -62,7 +62,7 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () => context.go('/test',extra: 'logical reasoning' ),
+                    onPressed: () => context.go('/test',extra: 'dummy' ),
                     // onPressed: () => context.go('/currentAnalysis' ),
                     child: const Text(
                       'Logical Reasoning',

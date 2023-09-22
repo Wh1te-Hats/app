@@ -52,18 +52,18 @@ class _UserInfoPageState extends State<UserInfoPage> {
                 'User Details',
                 Colors.white,
                 24.0,
-                EdgeInsets.fromLTRB(25, 40, 48, 02),
+                EdgeInsets.fromLTRB(25, 10, 28, 02),
                 FontWeight.w400,
                 FontStyle.normal),
             customText(
                 'Name',
                 Colors.white,
-                24.0,
-                EdgeInsets.fromLTRB(25, 30, 48, 02),
+                20.0,
+                EdgeInsets.fromLTRB(25, 20, 48, 02),
                 FontWeight.w300,
                 FontStyle.normal),
             Padding(
-              padding: EdgeInsets.fromLTRB(25, 20, 25, 20),
+              padding: EdgeInsets.fromLTRB(25, 20, 25, 10),
               child: TextField(
                 controller: _textFieldController1,
                 style: TextStyle(
@@ -88,11 +88,11 @@ class _UserInfoPageState extends State<UserInfoPage> {
             customText(
                 'Password',
                 Colors.white,
-                24.0,
-                EdgeInsets.fromLTRB(25, 20, 248, 02),
+                20.0,
+                EdgeInsets.fromLTRB(25, 10, 248, 02),
                 FontWeight.w300,
                 FontStyle.normal),
-            Padding(
+            Container(
               padding: EdgeInsets.fromLTRB(25, 20, 25, 02),
               child: TextField(
                 controller: _textFieldController2,
@@ -119,20 +119,22 @@ class _UserInfoPageState extends State<UserInfoPage> {
             customText(
                 'Board',
                 Colors.white,
-                24.0,
+                20.0,
                 EdgeInsets.fromLTRB(25, 20, 248, 02),
                 FontWeight.w300,
                 FontStyle.normal),
             Container(
-              margin: EdgeInsets.fromLTRB(25, 20, 25, 20),
-              decoration: 
-              BoxDecoration(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.height * 0.95,
+              margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                     border: Border.all(
-              color:MyApp.secondary, // Border color
-              width: 1.0, // Border width
-            ),),
-              padding: EdgeInsets.fromLTRB(35, 20, 25, 20),
+                border: Border.all(
+                  color: MyApp.secondary, // Border color
+                  width: 1.0, // Border width
+                ),
+              ),
+              padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -140,7 +142,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                     'Selected Option: ${selectedItem}',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
-                  Padding(padding: EdgeInsets.fromLTRB(25, 05, 25, 20)),
+                  Padding(padding: EdgeInsets.fromLTRB(5, 05, 5, 10)),
                   // Text(
                   //   selectedItem,
                   //   style: TextStyle(
@@ -148,7 +150,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                   //       fontWeight: FontWeight.bold,
                   //       color: Colors.white),
                   // ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 5),
                   DropdownButton<String>(
                     value: selectedItem, // The selected item from the list
                     items: items.map((String item) {
@@ -174,8 +176,8 @@ class _UserInfoPageState extends State<UserInfoPage> {
             customText(
               'Select your Grade',
               Colors.white,
-              24.0,
-              EdgeInsets.fromLTRB(25, 32, 28, 02),
+              20.0,
+              EdgeInsets.fromLTRB(25, 10, 8, 02),
               FontWeight.w300,
               FontStyle.normal,
             ),
@@ -184,7 +186,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                 color: MyApp.primaryColor,
               ),
               margin: EdgeInsets.only(
-                  top: 20.0, bottom: 40.0, left: 22.0, right: 25.0),
+                  top: 20.0, bottom: 20, left: 22.0, right: 25.0),
               padding: EdgeInsets.all(0.0),
               child: ToggleButtons(
                 borderRadius: BorderRadius.circular(10),

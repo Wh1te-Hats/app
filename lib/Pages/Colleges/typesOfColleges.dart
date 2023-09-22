@@ -13,7 +13,7 @@ class typesOfCollege extends StatefulWidget {
 class _typesOfCollegeState extends State<typesOfCollege> {
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop:()async{
+      onWillPop: () async {
         context.go('/home');
         return false;
       },
@@ -52,7 +52,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -64,11 +65,11 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -90,7 +91,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -102,11 +104,11 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -128,7 +130,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -137,14 +140,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -166,7 +169,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -175,14 +179,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -204,7 +208,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -213,14 +218,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -242,7 +247,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -251,14 +257,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -280,7 +286,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -289,14 +296,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -318,7 +325,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -327,14 +335,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -356,7 +364,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -365,14 +374,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -402,7 +411,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -411,14 +421,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -440,7 +450,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -449,14 +460,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -478,7 +489,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -487,14 +499,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -516,7 +528,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -525,14 +538,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -554,7 +567,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -563,14 +577,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -592,7 +606,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -601,14 +616,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(
@@ -630,7 +645,8 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             MyApp.primaryColor.withOpacity(0.3)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                             side: BorderSide(
@@ -639,15 +655,14 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                           ),
                         ),
                       ),
-
-                       onPressed: () {
+                      onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://0aa6-122-172-85-234.ngrok-free.app/college'; // Replace with your actual endpoint URL
-    
+                            'https://8fdd-122-172-87-1.ngrok-free.app/college'; // Replace with your actual endpoint URL
+
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
-                        context.go('/collegeList', extra:endpointURL );
+                        context.go('/collegeList', extra: endpointURL);
                         // Navigate to the defined route
                       },
                       child: const Text(

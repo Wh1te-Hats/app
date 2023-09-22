@@ -102,7 +102,7 @@ class _mcqTestState extends State<mcqTest> {
     // Access the endpointURL parameter in the initState method's body
     final String topic = widget.topic;
     print(topic);
-    getData('11111', topic);
+    getData('4444', topic);
     userResponses = List.filled(20, null);
   }
 
@@ -231,7 +231,7 @@ class _mcqTestState extends State<mcqTest> {
                   onPressed: () {
                     // String name = _textFieldController1.text;
                     // String password = _textFieldController2.text;
-                    context.go('/currentAnalysis');
+                    context.go('/currentAnalysis', extra :questions);
                   },
                   child: const Text(
                     'Submit',

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pragati_v1/Models/aptitude.dart';
 import 'package:pragati_v1/Pages/Aptitude/currentAnalysis.dart';
 import 'package:pragati_v1/Pages/Aptitude/general_aptitude.dart';
 import 'package:pragati_v1/Pages/Aptitude/mcqTest.dart';
 import 'package:pragati_v1/Pages/Aptitude/aptitudeHome.dart';
+import 'package:pragati_v1/Pages/CareerGuide/careerInfo.dart';
 import 'package:pragati_v1/Pages/CareerGuide/skills.dart';
 import 'package:pragati_v1/Pages/Colleges/collegeInfo.dart';
 import 'package:pragati_v1/Pages/Colleges/collegeList.dart';
 import 'package:pragati_v1/Pages/Colleges/typesOfColleges.dart';
+import 'package:pragati_v1/Pages/Exams/typesOfExam.dart';
+import 'package:pragati_v1/Pages/Jobs/jobInfo.dart';
+import 'package:pragati_v1/Pages/Jobs/jobList.dart';
+import 'package:pragati_v1/Pages/Jobs/jobUserInfo.dart';
 import 'package:pragati_v1/Pages/StreamBased/streamDetails.dart';
 import 'package:pragati_v1/Pages/getStarted.dart';
 import 'package:pragati_v1/Pages/welcome.dart';
@@ -88,7 +94,7 @@ final GoRouter router = GoRouter(
             GoRouterState state,
           ) =>
               MaterialPage(
-            child: CurrentAnalysis(),
+            child: CurrentAnalysis(questions : state.extra as List<Question>),
           ),
         ),
         GoRoute(
@@ -153,6 +159,56 @@ final GoRouter router = GoRouter(
           ) =>
               MaterialPage(
             child: CollegeInfoPage(),
+          ),
+        ),
+         GoRoute(
+          path: 'careerInfo',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: CareerInfo(),
+          ),
+        ),
+        GoRoute(
+          path: 'jobInfo',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: jobInfo(),
+          ),
+        ),
+        GoRoute(
+          path: 'jobList',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: jobList(jobUserInfo: state.extra as List<String>),
+          ),
+        ),
+        GoRoute(
+          path: 'jobUserInfo',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: jobUserInfo(),
+          ),
+        ),
+        GoRoute(
+          path: 'typesOfExam',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: typesOfExam(),
           ),
         ),
       ],

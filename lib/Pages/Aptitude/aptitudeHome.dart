@@ -131,7 +131,7 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                       ),
                       onPressed: () => context.go('/welcome'),
                       child: const Text(
-                        'Subject Based',
+                        'Career Based',
                         style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 28,

@@ -15,7 +15,7 @@ class _typesOfStreamState extends State<typesOfStream> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop:()async{
+      onWillPop: () async {
         context.go('/home');
         return false;
       },
@@ -64,8 +64,8 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://0aa6-122-172-85-234.ngrok-free.app/stream/pcm'; // Replace with your actual endpoint URL
-    
+                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcm'; // Replace with your actual endpoint URL
+
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
                       context.go('/streamDetails', extra: endpointURL);
@@ -100,8 +100,8 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://0aa6-122-172-85-234.ngrok-free.app/stream/pcb'; // Replace with your actual endpoint URL
-    
+                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcb'; // Replace with your actual endpoint URL
+
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
                       context.go('/streamDetails', extra: endpointURL);
@@ -136,8 +136,8 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://0aa6-122-172-85-234.ngrok-free.app/stream/pcmb'; // Replace with your actual endpoint URL
-    
+                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcmb'; // Replace with your actual endpoint URL
+
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
                       context.go('/streamDetails', extra: endpointURL);
@@ -172,8 +172,8 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://0aa6-122-172-85-234.ngrok-free.app/stream/commerce'; // Replace with your actual endpoint URL
-    
+                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/commerce'; // Replace with your actual endpoint URL
+
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
                       context.go('/streamDetails', extra: endpointURL);
@@ -208,8 +208,8 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://0aa6-122-172-85-234.ngrok-free.app/stream/arts'; // Replace with your actual endpoint URL
-    
+                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/arts'; // Replace with your actual endpoint URL
+
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
                       context.go('/streamDetails', extra: endpointURL);
