@@ -4,16 +4,17 @@ This project guides every child at secondary level to make career choices and pr
 
 Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
 
-### Video
+### Video :movie_camera:
 ---
 <a href="https://www.youtube.com/watch?v=Qj7DdwmhMtw">
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png" alt="Pragati" width="400" height="500">
 </a>
+---
 
-
-### Why Pragati ?? 
+### Why Pragati ?? :point_down:
 ---
 Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
+---
 
 ### Purpose behind Pragati :iphone:
 ---
@@ -21,9 +22,9 @@ Pragati transforms the student career exploration process, offering tailored gui
 - To offer personalized career recommendations based on individual skills and interests.
 - To help students assess their aptitude and evaluate proficiency, aiding students in understanding their strengths and weaknesses.
 - To provide statistical visualizations of future career prospects in various fields, helping students to choose their ideal path
-  
+---  
 
-### Use Cases 
+### Use Cases :writing_hand:
 ---
  - Career Assessment
  - Aptitude Testing
@@ -31,16 +32,16 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Higher Education Guidance
  - Customization
  - Progress Tracking
+---
 
-
-### Show Stopper :clapper:
+### Show Stoppers :clapper:
 ---
  - Dynamic and customizable aptitude testing
  - Skill based career recommendation
  - Analytics of Aptitude Test Result.
  - Visual data for better decision making
  - 24*7 ChatBot
-
+---
 
 ### The System Design - Workflow 🖊
 ---
