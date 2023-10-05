@@ -40,11 +40,12 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Analytics of Aptitude Test Result.
  - Visual data for better decision making
  - 24*7 ChatBot
-
+   
 
 ### The System Design - Workflow 🖊
 ---
 ![System_design_Pragati](https://github.com/Wh1te-Hats/app/assets/101006060/09c5cd29-0f4d-442a-bb47-b88ebb71705f)
+
 
 
 ### Approach Details 📝
@@ -64,7 +65,6 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 	  <td align="center"><b>Welcome Screen</b></td>
 	  <td align="center"><b>Home Screen</b></td>
 	  <td align="center"><b>Aptitude Tests</b></td>
-  </tr>![Aptitude Tests](https://github.com/Wh1te-Hats/app/assets/101006060/aa96ca49-846e-43f6-a304-e6b026481a6b)
 
   <tr>
     <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/8cb2557c-4e43-4e60-a4dc-0246492a44ed" width=270 height=590></td>
