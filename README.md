@@ -13,12 +13,13 @@ Pragati transforms the student career exploration process, offering tailored gui
 ---
 Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
 
-### Purpose behind Pragati 
+### Purpose behind Pragati :iphone:
 ---
 - To empower students in their career planning by providing valuable insights and guidance.
 - To offer personalized career recommendations based on individual skills and interests.
 - To help students assess their aptitude and evaluate proficiency, aiding students in understanding their strengths and weaknesses.
 - To provide statistical visualizations of future career prospects in various fields, helping students to choose their ideal path
+  
 
 ### Use Cases 
 ---
@@ -29,7 +30,8 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Customization
  - Progress Tracking
 
-### Show Stopper
+
+### Show Stopper :clapper:
 ---
  - Dynamic and customizable aptitude testing
  - Skill based career recommendation
@@ -37,12 +39,13 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Visual data for better decision making
  - 24*7 ChatBot
 
+
 ### The System Design - Workflow 🖊
 ---
 ![System_design_Pragati](https://github.com/Wh1te-Hats/app/assets/101006060/09c5cd29-0f4d-442a-bb47-b88ebb71705f)
 
 
-### Smarts Contracts 📝
+### Approach Details 📝
 ---
 
 1. User
