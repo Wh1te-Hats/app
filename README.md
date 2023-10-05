@@ -7,7 +7,7 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Video
 ---
-[![dRyver](![image](https://github.com/Wh1te-Hats/app/assets/101006060/7832426a-007b-4e60-ab15-e439c23e53dc)
+[![Pragati]((https://github.com/Wh1te-Hats/app/assets/101006060/7832426a-007b-4e60-ab15-e439c23e53dc)
 )](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
 
 
