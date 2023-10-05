@@ -89,7 +89,7 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 </p>
 
 
-### Buisness Potential 	
+### Buisness Potential 	:chart_with_upwards_trend:	
 ---
 Monetization Channels:
  - Dedicated Aptitude Tests: In the existing market, paid specialized
