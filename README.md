@@ -1,4 +1,4 @@
-# PRAGATI 
+# Pragati 
 
 This project guides every child at secondary level to make career choices and provides AI based counselling accessible along with aptitude tests and detailed career paths.
 
@@ -7,7 +7,7 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Video
 ---
-[![Pragati](https://github.com/Marcresi/pragati/assets/101006060/27e45b06-60b2-42ef-9b36-6f3c1e84c26f)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
+https://www.youtube.com/watch?v=Qj7DdwmhMtw
 
 
 ### Why Pragati ?? 
