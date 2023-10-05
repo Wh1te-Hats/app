@@ -68,7 +68,7 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 
   <tr>
     <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/8cb2557c-4e43-4e60-a4dc-0246492a44ed" width=270 height=590></td>
-    <td><img src=" https://github.com/Wh1te-Hats/app/assets/101006060/f75e5739-a4a3-4e30-b1c0-7f738479143d" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/f75e5739-a4a3-4e30-b1c0-7f738479143d" width=270 height=590></td>
     <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/aa96ca49-846e-43f6-a304-e6b026481a6b" width=270 height=590></td>
   </tr>
 		
