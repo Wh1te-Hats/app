@@ -89,56 +89,18 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 </p>
 
 
-### Prerequisites
+### Buisness Potential 	
 ---
-- Nodejs v9.10 or above
-- Truffle v4.1.8 (core: 4.1.8) (http://truffleframework.com/docs/getting_started/installation)
-- Solidity v0.8.0
-- Metamask (https://metamask.io) /Ganache Wallet
-
-### Deployment Steps:
----
-
-#### Smart contracts
-
-Steps to Execute Solidity Smart Contract using Remix IDE
-
-Remix IDE is generally used to compile and run Solidity smart contracts. Below are the steps for the compilation, execution, and debugging of the smart contract. 
- 
-
-Step 1: First clone our GitHub project from here. Open Remix IDE on any of your browsers, Choose solidity as the environment.
-```
-git clone https://github.com/NakamotoSans/Contracts
-cd Contracts
-```
-Step 2:Import the contracts from your local system. Click the Compile button under the Compiler window to compile the contract.
-Step 3: To execute the code, click on the Deploy button under the Deploy and Run Transactions window.
-Step 4: After deploying the code click on the method calls under the drop-down of deployed contracts to run the program, and for output, check to click on the drop-down on the console.
-Step 5: For debugging click on the Debug button corresponding to the method call in the console. Here you can check each function call and variable assignment.
-
-#### Mobile Application
-
-Step 1: Make sure you have the development environment is setup for [React-Native](https://reactnative.dev/docs/environment-setup).
-Step 2: Clone our Application GitHub repo
-```
-git clone https://github.com/NakamotoSans/Application
-cd Application
-```
-Step 3: Install all the dependencies
-```
-yarn install //recommended
-```
-or
-```
-npm install
-```
-Step 4: Start the Metro
-
-```
-npx react-native start
-```
-
-Step 5: Run the Application
-```
-npx react-native run-android
-```
+Monetization Channels:
+ - Dedicated Aptitude Tests: In the existing market, paid specialized
+tests account for 15% of total revenue, Pragati can charge users
+for dedicated aptitude tests.
+ - In-Depth Analytics: Premium analytics services have consistently contributed to 20% of revenue for leading platforms in the current market, Pragati can offer personalized insights on strengths, weaknesses, and career prospects.
+   
+Partnerships:
+ - Collaborations: Collaborating with educational providers has led
+to a 25% revenue boost for established platforms in the current
+market.
+ - Service Recommendations: In the existing market, referral
+programs have contributed to 15% of total revenue for
+education-focused platforms.
