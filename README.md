@@ -1,4 +1,4 @@
-#PRAGATI 
+# PRAGATI 
 
 This project guides every child at secondary level to make career choices and provides AI based counselling accessible along with aptitude tests and detailed career paths.
 
@@ -7,18 +7,19 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Video
 ---
-[![Pragati](https://res.cloudinary.com/marcomontalbano/image/upload/v1627261143/video_to_markdown/images/youtube--VzWq9QpSnq0-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
+[![Pragati](https://github.com/Marcresi/pragati/assets/101006060/27e45b06-60b2-42ef-9b36-6f3c1e84c26f)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
 
 
-### Problems in Existing System ⚠💀
+### Why Pragati ?? 
 ---
+Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
 
-- Applications like Uber provide a matching service and apparently they decentralize it. This is P2P technology at its finest. Or is it? 
-Several scandals have emerged out of Uber’s corporate culture as of late. Uber has become notorious both for its business practices and for what it incentivizes and allows its drivers to do. 
-
-- An Uber executive told the company to dig up dirt on a particular critical female reporter as well as other opponents. The power the company exerts over its drivers has grown from surveillance into possibly predatory practices. They have the ability to see all rides happening at any location in real-time with all social data attached to each rider And have been the subject of controversy on multiple occasions. 
-
-- Despite these concerns, Uber has grown at an exponential rate over the past few years and is showing revenue numbers in the billions. It provides a useful service: people prefer using a location-aware app to hail a ride over calling a taxi, and it’s safe to say the demand for real-time ride-sharing isn’t going away anytime soon. But privacy invasion and the vast imbalance of power between a billion-dollar corporation and the drivers are the negatives of Uber that riders must accept when they use its service.
+### Purpose behind Pragati 
+---
+- To empower students in their career planning by providing valuable insights and guidance.
+- To offer personalized career recommendations based on individual skills and interests.
+- To help students assess their aptitude and evaluate proficiency, aiding students in understanding their strengths and weaknesses.
+- To provide statistical visualizations of future career prospects in various fields, helping students to choose their ideal path
 
 
 
@@ -36,7 +37,7 @@ Several scandals have emerged out of Uber’s corporate culture as of late. Uber
 
 
 
-### Application Workflow Diagram 🖊
+### The System Design - Workflow 🖊
 ---
 ![](https://github.com/NakamotoSans/Screens/blob/main/workflow.png?raw=true)
 
