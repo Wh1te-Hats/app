@@ -9,12 +9,11 @@ Pragati transforms the student career exploration process, offering tailored gui
 <a href="https://www.youtube.com/watch?v=Qj7DdwmhMtw">
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png" alt="Pragati" width="400" height="500">
 </a>
----
+
 
 ### Why Pragati ?? :point_down:
 ---
 Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
----
 
 ### Purpose behind Pragati :iphone:
 ---
@@ -22,7 +21,7 @@ Pragati transforms the student career exploration process, offering tailored gui
 - To offer personalized career recommendations based on individual skills and interests.
 - To help students assess their aptitude and evaluate proficiency, aiding students in understanding their strengths and weaknesses.
 - To provide statistical visualizations of future career prospects in various fields, helping students to choose their ideal path
----  
+
 
 ### Use Cases :writing_hand:
 ---
@@ -32,7 +31,7 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Higher Education Guidance
  - Customization
  - Progress Tracking
----
+
 
 ### Show Stoppers :clapper:
 ---
@@ -41,7 +40,7 @@ Pragati transforms the student career exploration process, offering tailored gui
  - Analytics of Aptitude Test Result.
  - Visual data for better decision making
  - 24*7 ChatBot
----
+
 
 ### The System Design - Workflow 🖊
 ---
@@ -50,48 +49,27 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Approach Details 📝
 ---
+Pragati offers customized questions based on user requests. For topics under high demand, it retrieves questions from a preexisting pool in Redis, ensuring that users receive reliable and frequently asked questions. For less popular topics, it uses a Large Language Model (LLM) to generate fresh questions, tailored to the
+user's request. This approach ensures users always receive relevant questions for their tests or study needs.
 
-1. User
-2. Driver
-3. Customer
-
-**Owner:** Owner deploys the contract.
-
-**User:**  User is the base contract containing some common attributes and behaviour of Customers and Drivers.
-
-**Driver:** This Contract contains essential details of drivers along with some driver-specific methods.
-
-**Customer:** This contract contains methods that allow customers to request a ride.
-
-### Included Components
----
--  Solidity (**Ethereum**)
--  Metamask (**Ethereum** wallet)
--  Mumbai testnet ( **Polygon** Network with **Matic** Faucet )
--  Remix IDE
--  Truffle
--  IPFS
--  Web3JS
--  React Native 
--  Nodejs (Express)
--  Google Map Api
--  Firebase for Google Auth
-
+The Career Recommendation Model utilizes job listings data to recommend suitable careers based on specified skills. It analyzes job data, processes skills, and employs a Decision Tree Classifier for skill-based career predictions. When a match is identified, the model provides a career recommendation. Additionally, it employs cosine similarity to identify up to three other careers with similar skill requirements, offering a total of four recommendations
 
 ### UI screenshots of Mobile App 📸
 
 <p align="center">	
 <table align="center">
-	
+
+
   <tr>
 	  <td align="center"><b>Welcome Screen</b></td>
-	  <td align="center"><b>Login Screen</b></td>
-	  <td align="center"><b>Google AUth</b></td>
-  </tr>
+	  <td align="center"><b>Home Screen</b></td>
+	  <td align="center"><b>Aptitude Tests</b></td>
+  </tr>![Aptitude Tests](https://github.com/Wh1te-Hats/app/assets/101006060/aa96ca49-846e-43f6-a304-e6b026481a6b)
+
   <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_143841.jpg" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/8cb2557c-4e43-4e60-a4dc-0246492a44ed" width=270 height=590></td>
     <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145106.jpg" width=270 height=590></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145547.jpg" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/aa96ca49-846e-43f6-a304-e6b026481a6b" width=270 height=590></td>
   </tr>
 		
   <tr>
