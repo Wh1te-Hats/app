@@ -53,7 +53,7 @@ Pragati transforms the student career exploration process, offering tailored gui
 Pragati offers customized questions based on user requests. For topics under high demand, it retrieves questions from a preexisting pool in Redis, ensuring that users receive reliable and frequently asked questions. For less popular topics, it uses a Large Language Model (LLM) to generate fresh questions, tailored to the
 user's request. This approach ensures users always receive relevant questions for their tests or study needs.
 
-The Career Recommendation Model utilizes job listings data to recommend suitable careers based on specified skills. It analyzes job data, processes skills, and employs a Decision Tree Classifier for skill-based career predictions. When a match is identified, the model provides a career recommendation. Additionally, it employs cosine similarity to identify up to three other careers with similar skill requirements, offering a total of four recommendations
+The Career Recommendation Model utilizes job listings data to recommend suitable careers based on specified skills. It analyzes job data, processes skills, and employs a Decision Tree Classifier for skill-based career predictions. When a match is identified, the model provides a career recommendation. Additionally, it employs cosine similarity to identify up to three other careers with similar skill requirements, offering a total of four recommendations <br>
 
 ### UI screenshots of Mobile App 📸
 
