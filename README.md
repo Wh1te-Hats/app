@@ -54,7 +54,7 @@ Pragati offers customized questions based on user requests. For topics under hig
 user's request. This approach ensures users always receive relevant questions for their tests or study needs.
 
 The Career Recommendation Model utilizes job listings data to recommend suitable careers based on specified skills. It analyzes job data, processes skills, and employs a Decision Tree Classifier for skill-based career predictions. When a match is identified, the model provides a career recommendation. Additionally, it employs cosine similarity to identify up to three other careers with similar skill requirements, offering a total of four recommendations <br>
-
+<br>
 ### UI screenshots of Mobile App 📸
 
 <p align="center">	
