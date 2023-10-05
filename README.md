@@ -4,12 +4,10 @@ This project guides every child at secondary level to make career choices and pr
 
 Pragati transforms the student career exploration process, offering tailored guidance by assessing their unique skills and interests. Dynamic aptitude testing measures proficiency and provides future career prospect visualizations, exam and course advice.
 
-
 ### Video
 ---
 
-[![Pragati]( <img width="320px" height="640px" src="https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png"/>)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
-
+[![Pragati](https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
 
 ### Why Pragati ?? 
 ---
@@ -22,25 +20,27 @@ Pragati transforms the student career exploration process, offering tailored gui
 - To help students assess their aptitude and evaluate proficiency, aiding students in understanding their strengths and weaknesses.
 - To provide statistical visualizations of future career prospects in various fields, helping students to choose their ideal path
 
-
-
-		
- 
-
-### What we are providing 😇
+### Use Cases 
 ---
+ - Career Assessment
+ - Aptitude Testing
+ - Personalized Recommendations
+ - Higher Education Guidance
+ - Customization
+ - Progress Tracking
 
-- We eliminate the existence of the middle agency, thereby completely removing the regulation of salaries of drivers by corporations. So, the earnings of the driver are solely dependent on the number of rides he/she makes. 
-- All the data is stored on the peer-to-peer decentralized Polygon Matic Chain. This not only ensures complete security, but also a lightning-fast experience. Data privacy is maintained by the access specifiers of data members and methods defined in the smart contracts. 
-- We are not only eliminating the middle man, the L2 solution by Polygon gives us a boost in transaction rate. It is also a known fact that data transfer is faster in a mesh network.
-- We have implemented a smart contract addressing the issue of storing critical data necessary at different stages of Taxi Hailing and making it verifiable by all stakeholders in dRyver.
-
-
-
+### Show Stopper
+---
+ - Dynamic and customizable aptitude testing
+ - Skill based career recommendation
+ - Analytics of Aptitude Test Result.
+ - Visual data for better decision making
+ - 24*7 ChatBot
 
 ### The System Design - Workflow 🖊
 ---
-![](https://github.com/NakamotoSans/Screens/blob/main/workflow.png?raw=true)
+![System_design_Pragati](https://github.com/Wh1te-Hats/app/assets/101006060/09c5cd29-0f4d-442a-bb47-b88ebb71705f)
+
 
 ### Smarts Contracts 📝
 ---
