@@ -68,34 +68,23 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 
   <tr>
     <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/8cb2557c-4e43-4e60-a4dc-0246492a44ed" width=270 height=590></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145106.jpg" width=270 height=590></td>
+    <td><img src=" https://github.com/Wh1te-Hats/app/assets/101006060/f75e5739-a4a3-4e30-b1c0-7f738479143d" width=270 height=590></td>
     <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/aa96ca49-846e-43f6-a304-e6b026481a6b" width=270 height=590></td>
   </tr>
 		
   <tr>
-	  <td align="center"><b>Add Driver Details</b></td>
-	  <td align="center"><b>Link Wallet</b></td>
-	  <td align="center"><b>Searching Phase</b></td>
+	  <td align="center"><b>Colleges</b></td>
+	  <td align="center"><b>Analytics</b></td>
+	  <td align="center"><b>Jobs</b></td>
   </tr>
   
 	
   <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-28-217_com.sans.nakamoto.jpg" width=270 height=590></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150003.jpg" width=270 height=590></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150640.jpg" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/bd259fc8-04b1-4419-b34d-e9b12f627ebf" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/fd846ef2-7a26-4ef4-a5e7-c05a60df9707" width=270 height=590></td>
+    <td><img src="https://github.com/Wh1te-Hats/app/assets/101006060/8f45838d-eb2b-42e3-ab4b-44711c5f8183" width=270 height=590></td>
   </tr>	
 		
-  <tr>
-	  <td align="center"><b>Select Pickup and Drop Locations</b></td>
-	  <td align="center"><b>Active Ride Requests</b></td>
-	  <td align="center"><b>Ride Confirmed</b></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_151310.jpg" width=270 height=590></td>	
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-57-049_com.sans.nakamoto.jpg" width=270 height=590></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150832.jpg" width=270 height=590></td>
-    
-  </tr>	
  </table>	
 </p>
 
