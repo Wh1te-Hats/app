@@ -7,7 +7,8 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Video
 ---
-[![Pragati](https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
+
+[![Pragati]( <img width="320px" height="640px" src="https://github-production-user-asset-6210df.s3.amazonaws.com/101006060/272869819-7832426a-007b-4e60-ab15-e439c23e53dc.png"/>)](https://www.youtube.com/watch?v=Qj7DdwmhMtw)
 
 
 ### Why Pragati ?? 
