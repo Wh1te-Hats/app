@@ -35,151 +35,181 @@ class _CurrentAnalysisState extends State<CurrentAnalysis> {
     questions = widget.questions;
   }
 
+Future<void> wait2Seconds() async {
+  // Simulate an asynchronous operation,
+  await Future.delayed(const Duration(seconds: 1));
+}
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyApp.primaryColor,
-      appBar: AppBar(
-        title: const Text(MyApp.title),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-            iconSize: 35.0,
-            color: Colors.white,
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
-        ],
-      ),
-      // body:SizedBox(
-      //   child: WebView(
-      //     initialUrl: "",
-      //     javascriptMode: JavascriptMode.unrestricted,
-      //     onWebViewCreated: (WebViewController webViewController){
-      //       _webViewController = webViewController;
-      //       _loadHtml();
-      //     },
-      //   ),
-      // ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.06,
-                width: MediaQuery.of(context).size.width * 0.75,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        MyApp.primaryColor.withOpacity(0.3)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(
-                          color: MyApp.secondary,
-                        ), // Use CircleBorder to make the button circular
-                      ),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    'Your Score : 17/20',
-                    style: TextStyle(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(10, 00, 10, 00),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(
-                  color: MyApp.secondary, // Border color
-                  width: 0.9, // Border width
-                ),
-              ),
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.width * 0.95,
-              child: ListView.builder(
-                itemCount: questions!.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    margin: EdgeInsets.all(16.0),
-                    child: Container(
-                      color: MyApp.primaryColor.withOpacity(0.95),
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          customText(
-                              "Question ${questions![index].questionNumber}",
-                              Colors.white,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.bold,
-                              FontStyle.normal),
-                          customText(
-                              "${questions![index].questionTextHtml}",
-                              Colors.white,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.normal,
-                              FontStyle.normal),
-                          SizedBox(height: 15.0),
-                          customText(
-                              "Your Answer : a",
-                              Colors.white,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.bold,
-                              FontStyle.normal),
-                          customText(
-                              "Correct Answer : ${questions![index].correctAnswer}",
-                              Colors.white,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.bold,
-                              FontStyle.normal),
-                          SizedBox(height: 15.0),
-                          customText(
-                              "Explaination : ",
-                              MyApp.secondary,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.bold,
-                              FontStyle.normal),
-                          customText(
-                              "${questions![index].explaination}",
-                              Colors.white,
-                              18.0,
-                              EdgeInsets.fromLTRB(00, 00, 00, 00),
-                              FontWeight.normal,
-                              FontStyle.normal),
-                          // SizedBox(
-                          //   height: 20,
-                          //   child: WebView(
-                          //     initialUrl: "",
-                          //     javascriptMode: JavascriptMode.unrestricted,
-                          //     onWebViewCreated:
-                          //         (WebViewController webViewController) {
-                          //       _webViewController = webViewController;
-                          //       _loadHtml(questions[index].questionTextHtml);
-                          //     },
-                          //   ),
-                          // ),
-                          SizedBox(height: 8.0),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+    return WillPopScope(
+      onWillPop: () async {
+        context.go('/generalAptitude');
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: MyApp.primaryColor,
+        appBar: AppBar(
+          title: const Text(MyApp.title),
+          actions: [
+            IconButton(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
+              iconSize: 35.0,
+              color: Colors.white,
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
             ),
           ],
+        ),
+        // body:SizedBox(
+        //   child: WebView(
+        //     initialUrl: "",
+        //     javascriptMode: JavascriptMode.unrestricted,
+        //     onWebViewCreated: (WebViewController webViewController){
+        //       _webViewController = webViewController;
+        //       _loadHtml();
+        //     },
+        //   ),
+        // ),
+        body: FutureBuilder<void>(
+
+          future: wait2Seconds(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              // Show a loading indicator while waiting for data
+              return Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                  color: Colors.white,
+                ),
+              );
+            } else if (snapshot.hasError) {
+              // Handle errors
+              return Text('Error: ${snapshot.error}');
+            } else {
+              // Display data once it's loaded
+              return Container(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            MyApp.primaryColor.withOpacity(0.3)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            side: BorderSide(
+                              color: MyApp.secondary,
+                            ), // Use CircleBorder to make the button circular
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        'Your Score : 17/20',
+                        style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 00, 10, 00),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(
+                      color: MyApp.secondary, // Border color
+                      width: 0.9, // Border width
+                    ),
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: ListView.builder(
+                    itemCount: questions!.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        margin: EdgeInsets.all(16.0),
+                        child: Container(
+                          color: MyApp.primaryColor.withOpacity(0.95),
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              customText(
+                                  "Question ${questions![index].questionNumber}",
+                                  Colors.white,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.bold,
+                                  FontStyle.normal),
+                              customText(
+                                  "${questions![index].questionTextHtml}",
+                                  Colors.white,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.normal,
+                                  FontStyle.normal),
+                              SizedBox(height: 15.0),
+                              customText(
+                                  "Your Answer : a",
+                                  Colors.white,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.bold,
+                                  FontStyle.normal),
+                              customText(
+                                  "Correct Answer : ${questions![index].correctAnswer}",
+                                  Colors.white,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.bold,
+                                  FontStyle.normal),
+                              SizedBox(height: 15.0),
+                              customText(
+                                  "Explaination : ",
+                                  MyApp.secondary,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.bold,
+                                  FontStyle.normal),
+                              customText(
+                                  "${questions![index].explaination}",
+                                  Colors.white,
+                                  18.0,
+                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                  FontWeight.normal,
+                                  FontStyle.normal),
+                              // SizedBox(
+                              //   height: 20,
+                              //   child: WebView(
+                              //     initialUrl: "",
+                              //     javascriptMode: JavascriptMode.unrestricted,
+                              //     onWebViewCreated:
+                              //         (WebViewController webViewController) {
+                              //       _webViewController = webViewController;
+                              //       _loadHtml(questions[index].questionTextHtml);
+                              //     },
+                              //   ),
+                              // ),
+                              SizedBox(height: 8.0),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );}},
         ),
       ),
     );

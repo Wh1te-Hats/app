@@ -84,7 +84,7 @@ class _typesOfExamState extends State<typesOfExam> {
                           ],
                         ),
                         child: GestureDetector(
-                          onTap: () => context.go('/CollegeInfo'),
+                          onTap: () => context.go('/examDetails'),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -108,7 +108,7 @@ class _typesOfExamState extends State<typesOfExam> {
                                 iconSize: 27,
                                 icon: const Icon(Icons.arrow_forward),
                                 color: MyApp.secondary,
-                                onPressed: () => context.go('/CollegeInfo'),
+                                onPressed: () => context.go('/examDetails'),
                               ),
                             ],
                           ),

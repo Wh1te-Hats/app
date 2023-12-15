@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pragati_v1/Aspirants/roadmap.dart';
+import 'package:pragati_v1/Aspirants/typesOfAspirants.dart';
 import 'package:pragati_v1/Models/aptitude.dart';
 import 'package:pragati_v1/Pages/Aptitude/currentAnalysis.dart';
 import 'package:pragati_v1/Pages/Aptitude/general_aptitude.dart';
@@ -7,19 +9,24 @@ import 'package:pragati_v1/Pages/Aptitude/mcqTest.dart';
 import 'package:pragati_v1/Pages/Aptitude/aptitudeHome.dart';
 import 'package:pragati_v1/Pages/CareerGuide/careerInfo.dart';
 import 'package:pragati_v1/Pages/CareerGuide/skills.dart';
+import 'package:pragati_v1/Pages/Chatbot/chatbot.dart';
 import 'package:pragati_v1/Pages/Colleges/collegeInfo.dart';
 import 'package:pragati_v1/Pages/Colleges/collegeList.dart';
 import 'package:pragati_v1/Pages/Colleges/typesOfColleges.dart';
+import 'package:pragati_v1/Pages/Dashboard/dashboard.dart';
+import 'package:pragati_v1/Pages/Exams/examDetails.dart';
 import 'package:pragati_v1/Pages/Exams/typesOfExam.dart';
 import 'package:pragati_v1/Pages/Jobs/jobInfo.dart';
 import 'package:pragati_v1/Pages/Jobs/jobList.dart';
 import 'package:pragati_v1/Pages/Jobs/jobUserInfo.dart';
 import 'package:pragati_v1/Pages/StreamBased/streamDetails.dart';
-import 'package:pragati_v1/Pages/getStarted.dart';
+import 'package:pragati_v1/Pages/signIn.dart';
 import 'package:pragati_v1/Pages/welcome.dart';
 import 'package:pragati_v1/Routes/error_page.dart';
 import 'package:pragati_v1/Pages/userInfo.dart';
 import 'package:pragati_v1/Pages/home.dart';
+import 'package:pragati_v1/Widgets/splashScreen.dart';
+
 
 import '../Pages/CareerGuide/typesOfCareer.dart';
 import '../Pages/StreamBased/typesOfStream.dart';
@@ -36,7 +43,8 @@ final GoRouter router = GoRouter(
         BuildContext context,
         GoRouterState state,
       ) =>
-          getStarted(),
+         SplashScreen(),
+        // UserInfoPage(),
       routes: <GoRoute>[
         GoRoute(
           path: 'welcome',
@@ -46,6 +54,16 @@ final GoRouter router = GoRouter(
           ) =>
               MaterialPage(
             child: WelcomePage(),
+          ),
+        ),
+         GoRoute(
+          path: 'signin',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: SignIn(),
           ),
         ),
         GoRoute(
@@ -83,7 +101,7 @@ final GoRouter router = GoRouter(
           path: 'test',
           pageBuilder: (BuildContext context, GoRouterState state) {
             return MaterialPage(
-              child: mcqTest(topic :state.extra as String ),
+              child: mcqTest(topic: state.extra as String),
             );
           },
         ),
@@ -94,7 +112,7 @@ final GoRouter router = GoRouter(
             GoRouterState state,
           ) =>
               MaterialPage(
-            child: CurrentAnalysis(questions : state.extra as List<Question>),
+            child: CurrentAnalysis(questions: state.extra as List<Question>),
           ),
         ),
         GoRoute(
@@ -161,7 +179,7 @@ final GoRouter router = GoRouter(
             child: CollegeInfoPage(),
           ),
         ),
-         GoRoute(
+        GoRoute(
           path: 'careerInfo',
           pageBuilder: (
             BuildContext context,
@@ -202,13 +220,63 @@ final GoRouter router = GoRouter(
           ),
         ),
         GoRoute(
-          path: 'typesOfExam',
+          path: 'typesOfExams',
           pageBuilder: (
             BuildContext context,
             GoRouterState state,
           ) =>
               MaterialPage(
             child: typesOfExam(),
+          ),
+        ),
+        GoRoute(
+          path: 'chatbot',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: Chatbot(),
+          ),
+        ),
+        GoRoute(
+          path: 'examDetails',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: examDetails(),
+          ),
+        ),
+        GoRoute(
+          path: 'typesOfAspirants',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: typesOfAspirants(),
+          ),
+        ),
+        GoRoute(
+          path: 'roadmap',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: RoadMap(selectedSkill: state.extra as String),
+          ),
+        ),
+        GoRoute(
+          path: 'dashboard',
+          pageBuilder: (
+            BuildContext context,
+            GoRouterState state,
+          ) =>
+              MaterialPage(
+            child: DashBoard(),
           ),
         ),
       ],

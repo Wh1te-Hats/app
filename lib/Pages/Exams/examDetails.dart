@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pragati_v1/Widgets/customText.dart';
+import 'package:pragati_v1/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import '../../Widgets/customText.dart';
-import '../../main.dart';
-
-class CollegeInfoPage extends StatefulWidget {
-  const CollegeInfoPage({Key? key}) : super(key: key);
+class examDetails extends StatefulWidget {
+  const examDetails({super.key});
 
   @override
-  State<CollegeInfoPage> createState() => _CollegeInfoPageState();
+  State<examDetails> createState() => _examDetailsState();
 }
 
-class _CollegeInfoPageState extends State<CollegeInfoPage> {
-  @override
+class _examDetailsState extends State<examDetails> {
   Widget build(BuildContext context) {
     // Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return WillPopScope(
-       onWillPop:()async{
-        context.go('/typesOfColleges');
+      onWillPop: () async {
+        context.go('/typesOfExams');
         return false;
       },
       child: Scaffold(
@@ -45,7 +44,7 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
               CircleAvatar(
                 radius: 35,
                 child: Image.network(
-                  "https://static.zollege.in/public/college_data/images/logos/1434977143jpjpjpjpj.jpg?tr=h-60,w-60,c-force",
+                  "https://s3images.zee5.com/wp-content/uploads/2022/01/JEE2022Exam2022012809032320220128091544.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -54,59 +53,34 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   customText(
-                      'IIT',
+                      'Joint Entrance Exam - JEE',
                       Colors.white,
                       24.0,
                       EdgeInsets.fromLTRB(31, 27, 31, 02),
                       FontWeight.bold,
                       FontStyle.normal),
-                  customText(
-                      'Delhi',
-                      Colors.white,
-                      24.0,
-                      EdgeInsets.fromLTRB(31, 0, 31, 02),
-                      FontWeight.bold,
-                      FontStyle.normal),
-                  Row(
-                    children: [
-                      IconButton(
-                        padding: EdgeInsets.fromLTRB(134, 0, 0, 0),
-                        iconSize: 27,
-                        icon: const Icon(Icons.location_on_outlined),
-                        color: MyApp.secondary,
-                        onPressed: () => context.go('/CollegeInfoPage'),
-                      ),
-                      customText(
-                          'New Delhi, India',
-                          Colors.white,
-                          16.0,
-                          EdgeInsets.fromLTRB(0, 0, 31, 0),
-                          FontWeight.w400,
-                          FontStyle.normal),
-                    ],
-                  ),
                 ],
               ),
               customText(
-                  'Information',
+                  'Description',
                   Colors.white,
                   20.0,
-                  EdgeInsets.fromLTRB(0, 35, 261, 20),
+                  EdgeInsets.fromLTRB(20, 35, 261, 20),
                   FontWeight.bold,
                   FontStyle.normal),
               customText(
-                  'IIT Delhi was established in 1961. First, it was established as the College of Engineering, and later on, it was declared as an Institute of National Importance under the ‘Institute of Technology Act, 1963’. The Government of India has given the status of Deemed University, the college is autonomous and can take its own decisions about the academic policy, examinations and degrees.',
+                  'IIT Delhi was established in 1961. First, it was established as the College of Engineering, and later on, it was declared as an Institute of National Importance under the ‘Institute of Technology Act, 1963’.',
                   Colors.white,
                   16.0,
-                  EdgeInsets.fromLTRB(22, 5, 22, 40),
+                  EdgeInsets.fromLTRB(22, 5, 22, 30),
                   FontWeight.w400,
                   FontStyle.normal),
               Container(
-                height: MediaQuery.of(context).size.height * 0.60,
+                height: MediaQuery.of(context).size.height * 0.5,
                 margin: EdgeInsets.only(
                     top: 0.0, bottom: 25.0, left: 25.0, right: 25.0),
                 padding: EdgeInsets.only(
-                    top: 16.0, bottom: 5.0, left: 5.0, right: 5.0),
+                    top: 6.0, bottom: 5.0, left: 5.0, right: 5.0),
                 width: 377.0,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(10, 30, 46, 0.6),
@@ -121,7 +95,7 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     customText(
-                        'B.Tech',
+                        'Details',
                         Colors.white,
                         28.0,
                         EdgeInsets.fromLTRB(22, 5, 0, 20),
@@ -130,35 +104,21 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
                     Row(
                       children: [
                         customText(
-                            'Ranking:',
+                            'Eligibility:',
                             Colors.white,
                             20.0,
                             EdgeInsets.fromLTRB(22, 5, 0, 7),
                             FontWeight.w400,
                             FontStyle.normal),
-                        customText(
-                            '1st year Fees',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
                       ],
                     ),
                     Row(
                       children: [
                         customText(
-                            '# 2 NIRF',
+                            '10+2 with 75% + JEE Advanced',
                             MyApp.secondary,
                             20.0,
-                            EdgeInsets.fromLTRB(22, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                        customText(
-                            'Rs 2,20,000/-',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 0, 0, 40),
+                            EdgeInsets.fromLTRB(22, 0, 2, 20),
                             FontWeight.bold,
                             FontStyle.normal),
                       ],
@@ -166,58 +126,80 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
                     Row(
                       children: [
                         customText(
-                            'Duration:',
+                            'Registration Fees:',
                             Colors.white,
                             20.0,
                             EdgeInsets.fromLTRB(22, 5, 0, 7),
                             FontWeight.w400,
                             FontStyle.normal),
-                        customText(
-                            'Exams:',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
                       ],
                     ),
+                    Row(children: [
+                      customText(
+                          'Rs 2000/-',
+                          MyApp.secondary,
+                          20.0,
+                          EdgeInsets.fromLTRB(22, 0, 0, 20),
+                          FontWeight.bold,
+                          FontStyle.normal),
+                    ]),
                     Row(
                       children: [
                         customText(
-                            '4 Years.',
-                            MyApp.secondary,
+                            'Previous Year Papers :',
+                            Colors.white,
                             20.0,
-                            EdgeInsets.fromLTRB(22, 0, 0, 40),
-                            FontWeight.bold,
+                            EdgeInsets.fromLTRB(22, 5, 0, 27),
+                            FontWeight.w400,
                             FontStyle.normal),
-                        customText(
-                            'JEE Advanced',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
+                        IconButton(
+                          padding: EdgeInsets.fromLTRB(5, 05, 0, 25),
+                          iconSize: 30,
+                          icon: const Icon(Icons.link),
+                          color: MyApp.secondary,
+                          onPressed: () {
+                            Uri uri = Uri.parse("youtube.com");
+                            launchUrl(uri);
+                          },
+                        ),
                       ],
                     ),
-                    customText(
-                        'Eligibiilty',
-                        Colors.white,
-                        20.0,
-                        EdgeInsets.fromLTRB(22, 5, 0, 7),
-                        FontWeight.w400,
-                        FontStyle.normal),
-                    customText(
-                        '10+2 with 75% + JEE Advanced',
-                        MyApp.secondary,
-                        20.0,
-                        EdgeInsets.fromLTRB(22, 0, 152, 20),
-                        FontWeight.bold,
-                        FontStyle.normal),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.all(12.0),
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  MyApp.secondary),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              )),
+                            ),
+                            onPressed: () {
+                              // String name = _textFieldController1.text;
+                              // String password = _textFieldController2.text;
+                              Uri uri = Uri.parse("youtube.com");
+                              launchUrl(uri);
+                            },
+                            child: const Text(
+                              'Go to Website ',
+                              style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 22,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-             
-      
             ],
           ),
         ),
@@ -257,6 +239,3 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
     // );
   }
 }
-
-
-

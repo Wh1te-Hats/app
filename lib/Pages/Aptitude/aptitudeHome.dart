@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragati_v1/Widgets/customText.dart';
 
-
 import '../../Widgets/pieChart.dart';
 import '../../main.dart';
 
@@ -16,7 +15,6 @@ class AptitudeHome extends StatefulWidget {
 }
 
 class _AptitudeHomeState extends State<AptitudeHome> {
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -45,15 +43,15 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                 customText(
                   'Tests for You',
                   Colors.white,
-                  40.0,
-                  EdgeInsets.fromLTRB(20, 40, 20, 20),
+                  30.0,
+                  EdgeInsets.fromLTRB(20, 20, 20, 20),
                   FontWeight.w400,
                   FontStyle.normal,
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(20.0, 40.0, 10.0, 0.0),
+                  margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.12,
+                    height: MediaQuery.of(context).size.height * 0.10,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -74,16 +72,16 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                         'General Aptitude',
                         style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          fontSize: 28,
+                          fontSize: 24,
                         ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(20.0, 40.0, 10.0, 0.0),
+                  margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.12,
+                    height: MediaQuery.of(context).size.height * 0.10,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -104,16 +102,16 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                         'Course Based',
                         style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          fontSize: 28,
+                          fontSize: 24,
                         ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(20.0, 40.0, 10.0, 0.0),
+                  margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.12,
+                    height: MediaQuery.of(context).size.height * 0.10,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -134,54 +132,12 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                         'Career Based',
                         style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          fontSize: 28,
+                          fontSize: 24,
                         ),
                       ),
                     ),
                   ),
                 ),
-                customText(
-                  'Analytics',
-                  Colors.white,
-                  40.0,
-                  EdgeInsets.fromLTRB(20, 80, 20, 0),
-                  FontWeight.w400,
-                  FontStyle.normal,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(20.0, 40.0, 10.0, 0.0),
-                  height: 300,
-                  child: PieChartSample(),
-                ),
-                customText(
-                  'Performance',
-                  Colors.white,
-                  30.0,
-                  EdgeInsets.fromLTRB(20, 40, 20, 20),
-                  FontWeight.w400,
-                  FontStyle.normal,
-                ),
-                Container(
-                    child: Column(
-                  children: [
-                    customText(
-                  'You : 60 (BarGraph)',
-                  Colors.white,
-                  20.0,
-                  EdgeInsets.fromLTRB(20, 40, 20, 20),
-                  FontWeight.w400,
-                  FontStyle.normal,
-                ),
-                customText(
-                  'Average : 80 (Bar Graph)',
-                  Colors.white,
-                  20.0,
-                  EdgeInsets.fromLTRB(20, 40, 20, 20),
-                  FontWeight.w400,
-                  FontStyle.normal,
-                ),
-                  ],
-                )),
               ],
             ),
           ),

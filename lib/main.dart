@@ -1,7 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pragati_v1/Providers/chartbotProvider.dart';
+import 'package:pragati_v1/Providers/userProvider.dart';
 import 'package:pragati_v1/Routes/routes.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+    WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -64,31 +70,37 @@ class MyApp extends StatelessWidget {
   // This widget is the root
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: MyApp.title,
-      theme: ThemeData(
-        unselectedWidgetColor: Colors.white,
-        primarySwatch: primarySwatch,
-        hintColor: MyApp.secondary,
-        fontFamily: 'Aeonik',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(
-                fontFamily: 'Aeonik',
-                fontSize: 18,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => chatbotProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider())
+      ],
+      child: MaterialApp.router(
+        title: MyApp.title,
+        theme: ThemeData(
+          unselectedWidgetColor: Colors.white,
+          primarySwatch: primarySwatch,
+          hintColor: MyApp.secondary,
+          fontFamily: 'Aeonik',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'Aeonik',
+                  fontSize: 18,
+                ),
+                button: TextStyle(color: Colors.white),
               ),
-              button: TextStyle(color: Colors.white),
+          appBarTheme: AppBarTheme(
+            titleTextStyle: TextStyle(
+              fontFamily: 'Aeonik',
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
-        appBarTheme: AppBarTheme(
-          titleTextStyle: TextStyle(
-            fontFamily: 'Aeonik',
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
           ),
         ),
+        routeInformationParser: router.routeInformationParser,
+        routerDelegate: router.routerDelegate,
+        routeInformationProvider: router.routeInformationProvider,
       ),
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
-      routeInformationProvider: router.routeInformationProvider,
     );
   }
 }

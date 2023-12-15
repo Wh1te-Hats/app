@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
 import '../../Models/aptitude.dart';
 import '../../Widgets/customText.dart';
 import '../../apiService.dart';
@@ -106,6 +102,11 @@ class _mcqTestState extends State<mcqTest> {
     userResponses = List.filled(20, null);
   }
 
+  Future<void> wait2Seconds() async {
+    // Simulate an asynchronous operation,
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
   // A list to store user responses (initially empty)
   late List<int?> userResponses;
 
@@ -120,131 +121,158 @@ class _mcqTestState extends State<mcqTest> {
     //       .toString());
     // }
 
-    return Scaffold(
-      backgroundColor: MyApp.primaryColor,
-      appBar: AppBar(
-        title: const Text(MyApp.title),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-            iconSize: 35.0,
-            color: Colors.white,
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.8,
-            child: ListView.builder(
-              itemCount: questions.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  margin: EdgeInsets.all(16.0),
-                  child: Container(
-                    color: MyApp.primaryColor.withOpacity(0.88),
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        customText(
-                            "Question ${index + 1} : ${questions[index].questionTextHtml}",
-                            Colors.white,
-                            18.0,
-                            EdgeInsets.fromLTRB(00, 00, 00, 00),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                        // SizedBox(
-                        //   height: 20,
-                        //   child: WebView(
-                        //     initialUrl: "",
-                        //     javascriptMode: JavascriptMode.unrestricted,
-                        //     onWebViewCreated:
-                        //         (WebViewController webViewController) {
-                        //       _webViewController = webViewController;
-                        //       _loadHtml(questions[index].questionTextHtml);
-                        //     },
-                        //   ),
-                        // ),
-                        SizedBox(height: 8.0),
-                        Column(
-                          children: questions[index]
-                              .optionsHtml
-                              .asMap()
-                              .entries
-                              .map<Widget>((entry) {
-                            final int optionIndex = entry.key;
-                            final String optionText = entry.value;
-                            final int? response = userResponses.length > index
-                                ? userResponses[index]
-                                : null;
-                            return RadioListTile(
-                              activeColor: MyApp.secondary,
-                              title: customText(
-                                  optionText,
-                                  Colors.white,
-                                  16.0,
-                                  EdgeInsets.fromLTRB(00, 00, 00, 00),
-                                  FontWeight.normal,
-                                  FontStyle.normal),
-                              value: optionIndex,
-                              // ignore: unnecessary_null_comparison
-                              groupValue: response != null
-                                  ? optionText ==
-                                          questions[index].optionsHtml[response]
-                                      ? optionIndex
-                                      : null
-                                  : null,
-                              onChanged: (int? value) {
-                                userResponses[index] = value!;
-                                setState(() {});
-                                print(userResponses);
-                              },
-                            );
-                          }).toList(),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
+    return WillPopScope(
+      onWillPop: () async {
+        context.go('/generalAptitude');
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: MyApp.primaryColor,
+        appBar: AppBar(
+          title: const Text(MyApp.title),
+          actions: [
+            IconButton(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
+              iconSize: 35.0,
+              color: Colors.white,
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
             ),
-          ),
-          Center(
-            child: Container(
-              height: 48,
-              margin: EdgeInsets.fromLTRB(10, 10, 10, 5),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(MyApp.secondary),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    )),
-                  ),
-                  onPressed: () {
-                    // String name = _textFieldController1.text;
-                    // String password = _textFieldController2.text;
-                    context.go('/currentAnalysis', extra :questions);
-                  },
-                  child: const Text(
-                    'Submit',
-                    style: TextStyle(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 22,
-                    ),
-                  ),
+          ],
+        ),
+        body: FutureBuilder<void>(
+          future: wait2Seconds(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              // Show a loading indicator while waiting for data
+              return Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                  color: Colors.white,
                 ),
-              ),
-            ),
-          ),
-        ],
+              );
+            } else if (snapshot.hasError) {
+              // Handle errors
+              return Text('Error: ${snapshot.error}');
+            } else {
+              // Display data once it's loaded
+              return Column(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.8,
+                    child: ListView.builder(
+                      itemCount: questions.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          margin: EdgeInsets.all(16.0),
+                          child: Container(
+                            color: MyApp.primaryColor.withOpacity(0.88),
+                            padding: EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                customText(
+                                    "Question ${index + 1} : ${questions[index].questionTextHtml}",
+                                    Colors.white,
+                                    18.0,
+                                    EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                    FontWeight.bold,
+                                    FontStyle.normal),
+                                // SizedBox(
+                                //   height: 20,
+                                //   child: WebView(
+                                //     initialUrl: "",
+                                //     javascriptMode: JavascriptMode.unrestricted,
+                                //     onWebViewCreated:
+                                //         (WebViewController webViewController) {
+                                //       _webViewController = webViewController;
+                                //       _loadHtml(questions[index].questionTextHtml);
+                                //     },
+                                //   ),
+                                // ),
+                                SizedBox(height: 8.0),
+                                Column(
+                                  children: questions[index]
+                                      .optionsHtml
+                                      .asMap()
+                                      .entries
+                                      .map<Widget>((entry) {
+                                    final int optionIndex = entry.key;
+                                    final String optionText = entry.value;
+                                    final int? response =
+                                        userResponses.length > index
+                                            ? userResponses[index]
+                                            : null;
+                                    return RadioListTile(
+                                      activeColor: MyApp.secondary,
+                                      title: customText(
+                                          optionText,
+                                          Colors.white,
+                                          16.0,
+                                          EdgeInsets.fromLTRB(00, 00, 00, 00),
+                                          FontWeight.normal,
+                                          FontStyle.normal),
+                                      value: optionIndex,
+                                      // ignore: unnecessary_null_comparison
+                                      groupValue: response != null
+                                          ? optionText ==
+                                                  questions[index]
+                                                      .optionsHtml[response]
+                                              ? optionIndex
+                                              : null
+                                          : null,
+                                      onChanged: (int? value) {
+                                        userResponses[index] = value!;
+                                        setState(() {});
+                                        print(userResponses);
+                                      },
+                                    );
+                                  }).toList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      height: 48,
+                      margin: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                MyApp.secondary),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )),
+                          ),
+                          onPressed: () {
+                            // String name = _textFieldController1.text;
+                            // String password = _textFieldController2.text;
+                            context.go('/currentAnalysis', extra: questions);
+                          },
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }
+          },
+        ),
       ),
     );
   }

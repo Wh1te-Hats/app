@@ -64,7 +64,7 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcm'; // Replace with your actual endpoint URL
+                          'https://b5bb-122-172-87-1.ngrok-free.app/stream/pcm'; // Replace with your actual endpoint URL
 
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
@@ -100,7 +100,7 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcb'; // Replace with your actual endpoint URL
+                          'https://b5bb-122-172-87-1.ngrok-free.app/stream/pcb'; // Replace with your actual endpoint URL
 
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
@@ -136,7 +136,7 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/pcmb'; // Replace with your actual endpoint URL
+                          'https://b5bb-122-172-87-1.ngrok-free.app/stream/pcmb'; // Replace with your actual endpoint URL
 
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
@@ -172,7 +172,7 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/commerce'; // Replace with your actual endpoint URL
+                          'https://b5bb-122-172-87-1.ngrok-free.app/stream/commerce'; // Replace with your actual endpoint URL
 
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route
@@ -208,7 +208,7 @@ class _typesOfStreamState extends State<typesOfStream> {
                     ),
                     onPressed: () {
                       String endpointURL =
-                          'https://8fdd-122-172-87-1.ngrok-free.app/stream/arts'; // Replace with your actual endpoint URL
+                          'https://b5bb-122-172-87-1.ngrok-free.app/stream/arts'; // Replace with your actual endpoint URL
 
                       // Define the route and pass the endpointURL as a parameter
                       // Navigate to the defined route

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "263436407957",
+    "project_id": "pragati-33f00",
+    "storage_bucket": "pragati-33f00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263436407957:android:3fc72b391eb6adff04379c",
+        "android_client_info": {
+          "package_name": "com.example.pragati_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDybXsgj6fJSfDE8o7VeInnL2z451pq51U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
