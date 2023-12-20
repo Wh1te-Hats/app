@@ -9,15 +9,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../Widgets/customText.dart';
 import '../../main.dart';
 
-class CurrentAnalysis extends StatefulWidget {
+class Analysis extends StatefulWidget {
   final List<Question> questions;
-  CurrentAnalysis({super.key, required this.questions});
+  Analysis({super.key, required this.questions});
 
   @override
-  State<CurrentAnalysis> createState() => _CurrentAnalysisState();
+  State<Analysis> createState() => _AnalysisState();
 }
 
-class _CurrentAnalysisState extends State<CurrentAnalysis> {
+class _AnalysisState extends State<Analysis> {
   late List<Question>? questions = [];
 
   void initState() {
@@ -158,21 +158,9 @@ class _CurrentAnalysisState extends State<CurrentAnalysis> {
                                     )),
                                   ),
                                   onPressed: () async {
-                                    SharedPreferences prefs =
-                                        await SharedPreferences.getInstance();
-                                    String? userId = prefs.getString('user_id');
-                                    int total_time =  timeProvider.totalTime;
-                                    String date = startTime.toLocal().toString().substring(0, 10);
-                                    int score = timeProvider.score;
-                                    int incorrect = 20-score;
-                                    int correct = score;
-                                    String? type = prefs.getString('type');
-                                    String? subtype = prefs.getString('subtype');
-
-                                    await apiCollege().postTestAnalytics(userId??"Cxud", total_time, date, score, incorrect,correct, type??"general",
-                                    subtype??"lr" );
+                    
                                     context.go(
-                                      '/aptitudeHome',
+                                      '/home',
                                     );
                                   },
                                   child: Text(

@@ -31,9 +31,7 @@ class _CourseBasedState extends State<CourseBased> {
   // ];
 
   late List<CourseList> list = [];
-  late String storedGrade = '9' ;
-
-  
+  late String storedGrade = '9';
 
   void initState() {
     super.initState();
@@ -42,13 +40,12 @@ class _CourseBasedState extends State<CourseBased> {
   Future<void> execute() async {
     // Simulate an asynchronous operation,
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    storedGrade = prefs.getString('grade')??"9";
+    storedGrade = prefs.getString('grade') ?? "9";
     list = (await apiCollege().getCourseList(storedGrade));
-
   }
 
   // void getData(String grade) async {
-    
+
   //   print(storedGrade);
   //   setState(() {
   //     isLoaded = true;
@@ -132,8 +129,11 @@ class _CourseBasedState extends State<CourseBased> {
                                       ),
                                     ),
                                   ),
-                                  onPressed: () {
+                                  onPressed: () async {
                                     // Customize the onPressed logic if needed
+                                    SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    prefs.setString('subtype', list[index].subject);
                                     context.go('/chapters', extra: list[index]);
                                   },
                                   child: Text(

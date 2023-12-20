@@ -32,26 +32,21 @@ class _mcqTest2State extends State<mcqTest2> {
   void initState() {
     super.initState();
     scrollController = ScrollController();
-    if (!isLoaded) {
-      getData();
-    }
+
   }
 
   void getData() async {
+    
+  }
+
+  Future<void> execute() async {
+    // Simulate an asynchronous operation,
     SharedPreferences prefs = await SharedPreferences.getInstance();
     storedGrade = prefs.getString('grade') ?? "9";
     subject = postList[0].subject;
     chapter = postList[0].chapter[postList[1]];
     questions = (await apiCollege()
         .postCourseAptitude(storedGrade, subject, chapter)) as List<Question>;
-    setState(() {
-      isLoaded = true;
-    });
-  }
-
-  Future<void> execute() async {
-    // Simulate an asynchronous operation,
-    await Future.delayed(const Duration(seconds: 1));
   }
 
   int charToNumber(String char) {
@@ -130,18 +125,7 @@ class _mcqTest2State extends State<mcqTest2> {
                                     EdgeInsets.fromLTRB(00, 00, 00, 00),
                                     FontWeight.bold,
                                     FontStyle.normal),
-                                // SizedBox(
-                                //   height: 20,
-                                //   child: WebView(
-                                //     initialUrl: "",
-                                //     javascriptMode: JavascriptMode.unrestricted,
-                                //     onWebViewCreated:
-                                //         (WebViewController webViewController) {
-                                //       _webViewController = webViewController;
-                                //       _loadHtml(questions[index].questionTextHtml);
-                                //     },
-                                //   ),
-                                // ),
+            
                                 SizedBox(height: 8.0),
                                 Column(
                                   children: questions[index]

@@ -449,9 +449,9 @@ class _HomePageState extends State<HomePage>
                                           MainAxisAlignment.start,
                                       children: [
                                         customText(
-                                            'EXPLORE JOBS',
+                                            'JOBS',
                                             Colors.white,
-                                            18.0,
+                                            20.0,
                                             EdgeInsets.fromLTRB(0.0, 5, 5, 0.0),
                                             FontWeight.bold,
                                             FontStyle.normal),
@@ -552,49 +552,49 @@ class _HomePageState extends State<HomePage>
                               color: MyApp.secondary,
                               thickness: 0.6,
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height * 0.7,
-                              width: MediaQuery.of(context).size.width * 0.98,
-                              padding:
-                                  EdgeInsets.fromLTRB(15, 15.0, 15.0, 15.0),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          MyApp.primaryColor),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: BorderSide(color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () => context.go('/jobUserInfo'),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    customText(
-                                        'About ',
-                                        Colors.white,
-                                        28.0,
-                                        EdgeInsets.fromLTRB(4.0, 5, 5, 5.0),
-                                        FontWeight.bold,
-                                        FontStyle.normal),
-                                    CircleAvatar(
-                                      radius: 20,
-                                      child: Image.asset(
-                                        'assets/images/info-1.png',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            // SizedBox(
+                            //   height: 10,
+                            // ),
+                            // Container(
+                            //   height: MediaQuery.of(context).size.height * 0.7,
+                            //   width: MediaQuery.of(context).size.width * 0.98,
+                            //   padding:
+                            //       EdgeInsets.fromLTRB(15, 15.0, 15.0, 15.0),
+                            //   child: ElevatedButton(
+                            //     style: ButtonStyle(
+                            //       backgroundColor:
+                            //           MaterialStateProperty.all<Color>(
+                            //               MyApp.primaryColor),
+                            //       shape: MaterialStateProperty.all<
+                            //           RoundedRectangleBorder>(
+                            //         RoundedRectangleBorder(
+                            //           borderRadius: BorderRadius.circular(10),
+                            //           side: BorderSide(color: Colors.white),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     onPressed: () => context.go('/jobUserInfo'),
+                            //     child: Row(
+                            //       mainAxisAlignment: MainAxisAlignment.start,
+                            //       children: [
+                            //         customText(
+                            //             'About ',
+                            //             Colors.white,
+                            //             28.0,
+                            //             EdgeInsets.fromLTRB(4.0, 5, 5, 5.0),
+                            //             FontWeight.bold,
+                            //             FontStyle.normal),
+                            //         CircleAvatar(
+                            //           radius: 20,
+                            //           child: Image.asset(
+                            //             'assets/images/info-1.png',
+                            //             fit: BoxFit.cover,
+                            //           ),
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ],

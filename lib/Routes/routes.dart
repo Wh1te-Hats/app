@@ -18,6 +18,9 @@ import 'package:pragati_v1/Pages/Aptitude/mcqTest.dart';
 import 'package:pragati_v1/Pages/Aptitude/aptitudeHome.dart';
 import 'package:pragati_v1/Pages/CareerGuide/careerInfo.dart';
 import 'package:pragati_v1/Pages/CareerGuide/ratings.dart';
+import 'package:pragati_v1/Pages/CareerGuide/skillAssesment.dart';
+import 'package:pragati_v1/Pages/CareerGuide/skillTest.dart';
+import 'package:pragati_v1/Pages/CareerGuide/skillanalysis.dart';
 import 'package:pragati_v1/Pages/CareerGuide/skills.dart';
 import 'package:pragati_v1/Pages/Chatbot/chatbot.dart';
 import 'package:pragati_v1/Pages/Colleges/collegeInfo.dart';
@@ -124,6 +127,14 @@ final GoRouter router = GoRouter(
             );
           },
         ),
+         GoRoute(
+          path: 'skillAnalysis',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return MaterialPage(
+              child: Analysis(questions : state.extra as List<Question>),
+            );
+          },
+        ),
         GoRoute(
           path: 'currentAnalysis',
           pageBuilder: (
@@ -139,6 +150,13 @@ final GoRouter router = GoRouter(
           pageBuilder: (BuildContext context, GoRouterState state) =>
               MaterialPage(
             child: SkillsPage(),
+          ),
+        ),
+         GoRoute(
+          path: 'skillTest',
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              MaterialPage(
+            child: SkillTest(topic: state.extra as String),
           ),
         ),
         GoRoute(
@@ -388,14 +406,15 @@ final GoRouter router = GoRouter(
             child: AspirantsCard(),
           ),
         ),
+        
           GoRoute(
-          path: 'communityChat',
+          path: 'skillAssess',
           pageBuilder: (
             BuildContext context,
             GoRouterState state,
           ) =>
               MaterialPage(
-            child: CommunityChat(title: state.extra as String),
+            child: SkillAssess(list : state.extra as List<String>),
           ),
         ),
           GoRoute(

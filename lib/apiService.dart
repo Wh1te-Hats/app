@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pragati_v1/Models/analytics.dart';
 import 'package:pragati_v1/Models/aptitude.dart';
 import 'package:pragati_v1/Models/career.dart';
 import 'package:pragati_v1/Models/courseList.dart';
@@ -47,7 +48,7 @@ class apiCollege with ChangeNotifier {
     var client = http.Client();
 
     var uri =
-        Uri.parse('https://3905-106-76-230-13.ngrok-free.app/exams/$route');
+        Uri.parse('https://750b-103-191-91-174.ngrok-free.app/exams/$route');
 
     var response = await client.get(uri);
 
@@ -62,7 +63,7 @@ class apiCollege with ChangeNotifier {
     var client = http.Client();
 
     var uri = Uri.parse(
-        'https://3905-106-76-230-13.ngrok-free.app/aptitude/course/$grade');
+        'https://750b-103-191-91-174.ngrok-free.app/aptitude/course/$grade');
 
     var response = await client.get(uri);
 
@@ -73,9 +74,39 @@ class apiCollege with ChangeNotifier {
     return [];
   }
 
+  Future<List<TestScore>> getDashboard2(String userId) async {
+    var client = http.Client();
+
+    var uri = 
+    Uri.parse('https://750b-103-191-91-174.ngrok-free.app/analytics/exam_details/dummy/$userId');
+
+    var response = await client.get(uri);
+
+    if (response.statusCode == 200) {
+      var json = response.body;
+      return testScoreFromJson(json);
+    }
+    return [];
+  }
+
+  Future<List<TestScore>> getDashboard(String userId) async {
+    var client = http.Client();
+
+    var uri = 
+    Uri.parse('https://750b-103-191-91-174.ngrok-free.app/analytics/exam_details/$userId');
+
+    var response = await client.get(uri);
+
+    if (response.statusCode == 200) {
+      var json = response.body;
+      return testScoreFromJson(json);
+    }
+    return [];
+  }
+
   Future<List<CareerModel>?> postSkills(List<String> skills) async {
     final url = Uri.parse(
-        'https://3905-106-76-230-13.ngrok-free.app/career'); // Replace with your actual endpoint URL
+        'https://750b-103-191-91-174.ngrok-free.app/career'); // Replace with your actual endpoint URL
 
     final Map<String, dynamic> data = {
       'skill': skills,
@@ -109,7 +140,7 @@ class apiCollege with ChangeNotifier {
   Future<List<Question>> postGeneralAptitude(
       String userId, String topic) async {
     final String url =
-        'https://3905-106-76-230-13.ngrok-free.app/aptitude/general'; // Replace with your API endpoint
+        'https://750b-103-191-91-174.ngrok-free.app/aptitude/general'; // Replace with your API endpoint
 
     final Map<String, String> data = {
       'user_id': userId,
@@ -135,7 +166,7 @@ class apiCollege with ChangeNotifier {
   Future<List<Question>> postCourseAptitude(
       String grade, String subject, String chapter) async {
     final String url =
-        'https://3905-106-76-230-13.ngrok-free.app/aptitude/course'; // Replace with your API endpoint
+        'https://750b-103-191-91-174.ngrok-free.app/aptitude/course'; // Replace with your API endpoint
 
     final Map<String, String> data = {
       'grade': grade,
@@ -159,9 +190,73 @@ class apiCollege with ChangeNotifier {
     }
   }
 
+  
+  Future<List<Question>> postSkillAssessment(
+      String topic) async {
+    final String url =
+        'https://750b-103-191-91-174.ngrok-free.app/aptitude/general'; // Replace with your API endpoint
+
+    final Map<String, String> data = {
+      'topic': topic,
+    };
+
+    var response = await http.post(
+      Uri.parse(url),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(data),
+    );
+
+    if (response.statusCode == 200) {
+      var jsonResponse = response.body;
+      return questionFromJson(jsonResponse);
+    } else {
+      throw Exception('Failed to post request');
+    }
+  }
+
+
+  Future<String?> postTestAnalytics(
+      String userId,
+      int totalTime,
+      String date,
+      int score,
+      int incorrect,
+      int correct,
+      String type,
+      String subtype) async {
+    final String url =
+        'https://750b-103-191-91-174.ngrok-free.app/analytics/exam'; // Replace with your API endpoint
+
+    final Map<String, dynamic> data = {
+      "user_id": userId,
+      "total_time": totalTime,
+      "date": date,
+      "score": score,
+      "incorrect": incorrect,
+      "correct": correct,
+      "type": type,
+      "subtype": subtype
+    };
+    var response = await http.post(
+      Uri.parse(url),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(data),
+    );
+
+    if (response.statusCode == 200) {
+      print(response);
+    } else {
+      throw Exception('Failed to post request');
+    }
+  }
+
   Future<List<Job>> postJobInfo(List<String> jobUserInfo) async {
     final String url =
-        'https://3905-106-76-230-13.ngrok-free.app/job'; // Replace with your API endpoint
+        'https://750b-103-191-91-174.ngrok-free.app/job'; // Replace with your API endpoint
 
     final Map<String, String> data = {
       "role": jobUserInfo[0],
@@ -195,7 +290,7 @@ class apiCollege with ChangeNotifier {
     };
 
     var response = await http.post(
-      Uri.parse('https://3905-106-76-230-13.ngrok-free.app/chat'),
+      Uri.parse('https://750b-103-191-91-174.ngrok-free.app/chat'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -229,7 +324,7 @@ class apiCollege with ChangeNotifier {
     };
 
     var response = await http.post(
-        Uri.parse('https://3905-106-76-230-13.ngrok-free.app/register'),
+        Uri.parse('https://750b-103-191-91-174.ngrok-free.app/register'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

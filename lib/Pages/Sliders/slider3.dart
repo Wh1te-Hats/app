@@ -14,7 +14,7 @@ class _Slider3State extends State<Slider3> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).go('/welcome');
+        GoRouter.of(context).go('/signin');
       },
       child: Scaffold(
         backgroundColor: MyApp.primaryColor,

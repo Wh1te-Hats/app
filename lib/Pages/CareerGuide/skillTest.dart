@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pragati_v1/Models/aptitude.dart';
 import 'package:pragati_v1/Providers/timeProvider.dart';
+import 'package:pragati_v1/Widgets/customText.dart';
+import 'package:pragati_v1/apiService.dart';
+import 'package:pragati_v1/main.dart';
 import 'package:provider/provider.dart';
-import '../../Models/aptitude.dart';
-import '../../Widgets/customText.dart';
-import '../../apiService.dart';
-import '../../main.dart';
 
-class mcqTest extends StatefulWidget {
-  final String topic;
+class SkillTest extends StatefulWidget {
 
-  const mcqTest({super.key, required this.topic});
+   final String topic;
 
-  @override
-  State<mcqTest> createState() => _mcqTestState();
+  const SkillTest({super.key, required this.topic});
+
+    @override
+  State<SkillTest> createState() => _SkillTestState();
+
 }
 
-var isLoaded = false;
-
-class _mcqTestState extends State<mcqTest> {
-
+class _SkillTestState extends State<SkillTest> {
   late TimeProvider timeProvider;
   late ScrollController scrollController;
   late List<Question> questions = [];
@@ -37,10 +36,21 @@ class _mcqTestState extends State<mcqTest> {
   Future<void> wait() async {
     // Simulate an asynchronous operation,
     final String topic = widget.topic;
-    if(isLoaded==false){
-   questions =
-        (await apiCollege().postGeneralAptitude('cXud', topic)) as List<Question>;
-        isLoaded=true;}
+  //  questions =(await apiCollege().postSkillAssessment(topic)) as List<Question>;
+  questions = List.generate(10, (index) {
+    return Question(
+      questionNumber: "Q${index + 1}",
+      questionText: "Sample Question ${index + 1}?",
+      options: [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D",
+      ],
+      correctAnswer: "Option A",
+      explaination: "Explanation for Sample Question ${index + 1}.",
+    );
+  });
   }
 
   int charToNumber(String char) {
@@ -53,15 +63,11 @@ class _mcqTestState extends State<mcqTest> {
       return 0; // or throw an exception, return a default value, etc.
     }
   }
-
-
-
-  @override
   Widget build(BuildContext context) {
 
     timeProvider = Provider.of<TimeProvider>(context);
 
-    return WillPopScope(
+  return WillPopScope(
       onWillPop: () async {
         context.go('/generalAptitude');
         return false;
@@ -211,7 +217,7 @@ class _mcqTestState extends State<mcqTest> {
                             // String password = _textFieldController2.text;
                             timeProvider.endTest();
                             context.go(
-                              '/currentAnalysis',
+                              '/skillAnalysis',
                               extra: questions,
                             );
                           },

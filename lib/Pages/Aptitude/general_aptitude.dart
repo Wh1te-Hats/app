@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragati_v1/Providers/timeProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Widgets/customText.dart';
 import '../../main.dart';
@@ -14,7 +15,6 @@ class GeneralAptitude extends StatefulWidget {
 }
 
 class _GeneralAptitudeState extends State<GeneralAptitude> {
-
   late TimeProvider timeProvider;
 
   @override
@@ -29,7 +29,6 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
         backgroundColor: MyApp.primaryColor,
         appBar: AppBar(
           title: const Text(MyApp.title),
-         
         ),
         body: Center(
           child: Column(
@@ -60,10 +59,14 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'gk');
+
                       timeProvider.startTest();
                       context.go('/test', extra: 'general knowledge');
-                      },
+                    },
                     child: const Text(
                       'General Knowledge',
                       style: TextStyle(
@@ -92,10 +95,13 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async{
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'lr');
                       timeProvider.startTest();
                       context.go('/test', extra: 'logical reasoning');
-                      },
+                    },
                     // onPressed: () => context.go('/currentAnalysis' ),
                     child: Text(
                       'Logical Reasoning',
@@ -125,7 +131,13 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () => context.go('/test', extra: 'arithmetic'),
+                     onPressed: () async{
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'ar');
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'arithmetic');
+                    },
                     child: const Text(
                       'Arithmetic',
                       style: TextStyle(
@@ -154,8 +166,13 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () =>
-                        context.go('/test', extra: 'verbal reasoning'),
+                     onPressed: () async{
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'vr');
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'verbal reasoning');
+                    },
                     child: const Text(
                       'Verbal Reasoning',
                       style: TextStyle(
@@ -184,8 +201,13 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () =>
-                        context.go('/test', extra: 'logical reasoning'),
+                  onPressed: () async{
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'nvr');
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'non verbal reasoning');
+                    },
                     child: const Text(
                       'Non-Verbal Reasoning',
                       style: TextStyle(
@@ -214,8 +236,13 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () =>
-                        context.go('/test', extra: 'logical reasoning'),
+                     onPressed: () async{
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString('subtype', 'va');
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'verbal ability');
+                    },
                     child: const Text(
                       'Verbal Ability',
                       style: TextStyle(

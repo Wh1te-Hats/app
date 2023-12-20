@@ -182,6 +182,38 @@ class _typesOfCareerState extends State<typesOfCareer> {
                         },
                       ),
                     ),
+                    Center(
+                child: Container(
+                  margin: EdgeInsets.all(12.0),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(MyApp.secondary),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                      ),
+                      onPressed: () {
+                        // String name = _textFieldController1.text;
+                        // String password = _textFieldController2.text;
+                        context.go('/skillAssess', extra:skillList );
+                      },
+                      child: const Text(
+                        'Take Skill Assessment',
+                        style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 22,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                   ],
                 );
               }

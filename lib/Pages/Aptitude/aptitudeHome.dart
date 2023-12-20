@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragati_v1/Widgets/customText.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../main.dart';
 
 class AptitudeHome extends StatefulWidget {
@@ -56,7 +57,12 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                           ),
                         ),
                       ),
-                      onPressed: () => context.go('/generalAptitude'),
+                      onPressed: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setString('type', 'general');
+                        context.go('/generalAptitude');
+                      },
                       child: Column(
                         children: [
                           customText(
@@ -83,7 +89,10 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                                 padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
                                 iconSize: 30.0,
                                 color: MyApp.secondary,
-                                onPressed: () {
+                                onPressed: () async {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setString('type', 'general');
                                   context.go(
                                     '/generalAptitude',
                                   );
@@ -116,7 +125,12 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                           ),
                         ),
                       ),
-                      onPressed: () => context.go('/courseBased'),
+                      onPressed: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setString('type', 'course');
+                        context.go('/courseBased');
+                      },
                       child: Column(
                         children: [
                           customText(
@@ -143,10 +157,11 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                                 padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
                                 iconSize: 30.0,
                                 color: MyApp.secondary,
-                                onPressed: () {
-                                  context.go(
-                                    '/courseBased',
-                                  );
+                                onPressed: () async {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setString('type', 'course');
+                                  context.go('/courseBased');
                                 },
                                 icon: const Icon(Icons.arrow_forward_ios_sharp),
                               ),
@@ -176,7 +191,12 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                           ),
                         ),
                       ),
-                      onPressed: () => context.go('/generalAptitude'),
+                      onPressed: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setString('type', 'course');
+                        context.go('/courseBased');
+                      },
                       child: Column(
                         children: [
                           customText(
@@ -203,10 +223,11 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                                 padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
                                 iconSize: 30.0,
                                 color: MyApp.secondary,
-                                onPressed: () {
-                                  context.go(
-                                    '/generalAptitude',
-                                  );
+                                onPressed: () async {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setString('type', 'course');
+                                  context.go('/courseBased');
                                 },
                                 icon: const Icon(Icons.arrow_forward_ios_sharp),
                               ),

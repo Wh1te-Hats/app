@@ -183,8 +183,8 @@ class _AspirantsCardState extends State<AspirantsCard> {
                                               onPressed: () {
                                                 // String name = _textFieldController1.text;
                                                 // String password = _textFieldController2.text;
-                                                context.go('/aspirantsDetails',
-                                                    extra: 0);
+                                                // context.go('/aspirantsDetails',
+                                                //     extra: 0);
                                               },
                                               child: Row(
                                                 children: [
@@ -292,8 +292,7 @@ class _AspirantsCardState extends State<AspirantsCard> {
                                               onPressed: () {
                                                 // String name = _textFieldController1.text;
                                                 // String password = _textFieldController2.text;
-                                                context.go('/aspirantsDetails',
-                                                    extra: 1);
+                                          
                                               },
                                               child: Row(
                                                 children: [
@@ -302,7 +301,7 @@ class _AspirantsCardState extends State<AspirantsCard> {
                                                     style: TextStyle(
                                                       fontStyle:
                                                           FontStyle.normal,
-                                                      fontSize: 24,
+                                                      fontSize: 22,
                                                     ),
                                                   ),
                                                   Icon(Icons.launch,
@@ -400,8 +399,8 @@ class _AspirantsCardState extends State<AspirantsCard> {
                                               onPressed: () {
                                                 // String name = _textFieldController1.text;
                                                 // String password = _textFieldController2.text;
-                                                context.go('/aspirantsDetails',
-                                                    extra: 2);
+                                                context.go('/typesOfColleges',
+                                                    );
                                               },
                                               child: Row(
                                                 children: [
@@ -557,8 +556,8 @@ class _AspirantsCardState extends State<AspirantsCard> {
                                               onPressed: () {
                                                 // String name = _textFieldController1.text;
                                                 // String password = _textFieldController2.text;
-                                                context.go('/aspirantsDetails',
-                                                    extra: 2);
+                                                // context.go('/aspirantsDetails',
+                                                //     extra: 2);
                                               },
                                               child: Row(
                                                 children: [

@@ -64,7 +64,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/engineering'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/engineering'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -103,7 +103,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/mbbs'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/mbbs'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -142,7 +142,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/science'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/science'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -181,7 +181,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/architecture';
+                            'https://750b-103-191-91-174.ngrok-free.app/college/architecture';
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -220,7 +220,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/mass_media'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/mass_media'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -259,7 +259,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/law'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/law'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -298,7 +298,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/bcom'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/bcom'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
@@ -337,7 +337,7 @@ class _typesOfCollegeState extends State<typesOfCollege> {
                       onPressed: () {
                         // Define the endpoint URL for this button
                         String endpointURL =
-                            'https://3905-106-76-230-13.ngrok-free.app/college/mba'; // Replace with your actual endpoint URL
+                            'https://750b-103-191-91-174.ngrok-free.app/college/mba'; // Replace with your actual endpoint URL
 
                         // Define the route and pass the endpointURL as a parameter
                         // Navigate to the defined route
