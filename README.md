@@ -35,7 +35,7 @@ Pragati transforms the student career exploration process, offering tailored gui
 
 ### Show Stoppers :clapper:
 ---
- - Dynamic and customizable aptitude testing
+ - Dynamic aptitude testing
  - Skill based career recommendation
  - Analytics of Aptitude Test Result.
  - Visual data for better decision making
@@ -89,15 +89,15 @@ The Career Recommendation Model utilizes job listings data to recommend suitable
 </p>
 
 
-### Buisness Potential 	:chart_with_upwards_trend:	
+## Buisness Potential :	
 ---
-Monetization Channels:
+### Monetization Channels:
  - Dedicated Aptitude Tests: In the existing market, paid specialized
 tests account for 15% of total revenue, Pragati can charge users
 for dedicated aptitude tests.
  - In-Depth Analytics: Premium analytics services have consistently contributed to 20% of revenue for leading platforms in the current market, Pragati can offer personalized insights on strengths, weaknesses, and career prospects.
    
-Partnerships:
+### Partnerships:
  - Collaborations: Collaborating with educational providers has led
 to a 25% revenue boost for established platforms in the current
 market.
