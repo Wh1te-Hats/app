@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UserInfoProvider {
+class UserInfoProvider extends ChangeNotifier {
   String grade="";
   String gender="";
   String board="";

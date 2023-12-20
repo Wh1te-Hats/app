@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:pragati_v1/Models/career.dart';
 import '../../Widgets/customText.dart';
 import '../../main.dart';
 
 class CareerInfo extends StatefulWidget {
-  const CareerInfo({super.key});
+  CareerModel info;
+  CareerInfo({super.key, required this.info});
 
   @override
   State<CareerInfo> createState() => _CareerInfoState();
@@ -13,9 +14,11 @@ class CareerInfo extends StatefulWidget {
 
 class _CareerInfoState extends State<CareerInfo> {
   List<String> skillList = ['Coding', 'AI/Ml', 'Algorithms', 'Networking'];
+  late CareerModel info;
 
   @override
   Widget build(BuildContext context) {
+    info = widget.info;
     return WillPopScope(
       onWillPop: () async {
         context.go('/skills');
@@ -25,30 +28,23 @@ class _CareerInfoState extends State<CareerInfo> {
         backgroundColor: MyApp.primaryColor,
         appBar: AppBar(
           title: const Text(MyApp.title),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-              iconSize: 35.0,
-              color: Colors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-          ],
         ),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Center(
+                child: customText(
+                    info.careerName,
+                    Colors.white,
+                    34.0,
+                    EdgeInsets.fromLTRB(0.0, 25, 0, 10.0),
+                    FontWeight.bold,
+                    FontStyle.normal),
+              ),
               customText(
-                  'Software Engineer',
-                  Colors.white,
-                  40.0,
-                  EdgeInsets.fromLTRB(21.0, 22, 0, 9.0),
-                  FontWeight.bold,
-                  FontStyle.normal),
-              customText(
-                  'Job Statistics',
+                  'Job Stats',
                   Colors.white,
                   22.0,
                   EdgeInsets.fromLTRB(21.0, 12, 0, 9.0),
@@ -130,21 +126,21 @@ class _CareerInfoState extends State<CareerInfo> {
                   FontWeight.w400,
                   FontStyle.normal),
               customText(
-                  'What is Software Engineering ?',
+                  '${info.careerName}  ?',
                   Colors.white,
                   22.0,
                   EdgeInsets.fromLTRB(21.0, 17, 115, 9.0),
                   FontWeight.w400,
                   FontStyle.normal),
               customText(
-                  'Software Engineering is an interdisciplinary field that deals with the study, management, and representation of information and data. It encompasses a wide range of topics, including information retrieval, data mining, natural language processing, knowledge representation, human-computer interaction, and more.',
+                  info.careerDescription,
                   Colors.white,
                   16.0,
                   EdgeInsets.fromLTRB(22, 5, 22, 20),
                   FontWeight.w400,
                   FontStyle.normal),
               Container(
-                height: MediaQuery.of(context).size.height * 0.20,
+                height: MediaQuery.of(context).size.height * 0.15,
                 margin: EdgeInsets.only(
                     top: 0.0, bottom: 5.0, left: 25.0, right: 25.0),
                 padding: EdgeInsets.only(
@@ -160,62 +156,22 @@ class _CareerInfoState extends State<CareerInfo> {
                   ],
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        customText(
-                            'Average',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 5, 94, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                        customText(
-                            'Estimated',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(0, 5, 30, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        customText(
-                            'Annual Salary',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 0, 47, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                        customText(
-                            'Home Salary',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(0, 0, 30, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        customText(
-                            'Rs 3.2 LPA',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 10, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                        customText(
-                            'Rs 20k/month',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(55, 10, 30, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                      ],
-                    ),
+                    customText(
+                        'Average Annual Salary',
+                        Colors.white,
+                        20.0,
+                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        FontWeight.w400,
+                        FontStyle.normal),
+                    customText(
+                        'Rs 3.2 LPA',
+                        MyApp.secondary,
+                        20.0,
+                        EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        FontWeight.bold,
+                        FontStyle.normal),
                   ],
                 ),
               ),
@@ -227,7 +183,7 @@ class _CareerInfoState extends State<CareerInfo> {
                   FontWeight.w400,
                   FontStyle.normal),
               Container(
-                height: 172,
+                height: skillList.length * 50,
                 width: 400,
                 child: ListView.builder(
                   itemCount: skillList.length,
@@ -240,29 +196,34 @@ class _CareerInfoState extends State<CareerInfo> {
                           top: 16.0, bottom: 1.0, left: 124.0, right: 5.0),
                       width: 27.0,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(240, 19, 53, 80),
+                        color: Color.fromARGB(239, 5, 17, 28),
                         borderRadius: BorderRadius.circular(10.0),
-                      
-                      boxShadow: [
-                        BoxShadow(
-                          color: MyApp.primaryColor,
-                          spreadRadius: 1.0,
-                          blurRadius: 3.0,
-                        ),
-                      ],),
-                      child: Text(
-                        skillList[index],
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: MyApp.primaryColor,
+                            spreadRadius: 1.0,
+                            blurRadius: 3.0,
+                          ),
+                        ],
+                        border: Border.all(
+                          color:
+                              MyApp.secondary, // Specify the border color here
+                          width: 0.6, // Specify the border width here
                         ),
                       ),
+                      child: customText(
+                          skillList[index],
+                          Colors.white,
+                          22.0,
+                          EdgeInsets.fromLTRB(0.0, 0, 0, 0.0),
+                          FontWeight.w400,
+                          FontStyle.normal),
                     );
                   },
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(44,42, 0, 44),
+                padding: const EdgeInsets.fromLTRB(44, 42, 0, 44),
                 child: SizedBox(
                   height: 38,
                   width: 320,

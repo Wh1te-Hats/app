@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen>
     else{
       Timer(Duration(seconds: 2), () {
       GoRouter.of(context)
-          .go('/welcome'); // Navigate to your actual screen using go_router
+          .go('/slider1'); // Navigate to your actual screen using go_router
     });
     }
   }
@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen>
         child: FadeTransition(
           opacity: (_fadeInAnimation),
           child: Image.asset(
-              "assets/images/pragati_logo.png"), // Display your splash image
+              "assets/images/splash.png"), // Display your splash image
         ),
       ),
     );

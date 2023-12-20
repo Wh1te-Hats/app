@@ -9,30 +9,30 @@ String questionToJson(List<Question> data) =>
 class Question {
   Question({
     required this.questionNumber,
-    required this.questionTextHtml,
-    required this.optionsHtml,
+    required this.questionText,
+    required this.options,
     required this.correctAnswer,
     required this.explaination,
   });
 
   String questionNumber;
-  String questionTextHtml;
-  List<String> optionsHtml;
+  String questionText;
+  List<String> options;
   String correctAnswer;
   String explaination;
 
   factory Question.fromJson(Map<String, dynamic> json) => Question(
         questionNumber: json["question_number"],
-        questionTextHtml: json["question_text_html"],
-        optionsHtml: List<String>.from(json["options_html"].map((x) => x)),
+        questionText: json["question"],
+        options: List<String>.from(json["options"].map((x) => x)),
         correctAnswer: json["correct_option"],
         explaination: json["explaination"],
       );
 
   Map<String, dynamic> toJson() => {
         "question_number": questionNumber,
-        "question_text_html": questionTextHtml,
-        "options_html": List<dynamic>.from(optionsHtml.map((x) => x)),
+        "question": questionText,
+        "options": List<dynamic>.from(options.map((x) => x)),
         "correct_option":correctAnswer,
         "explaination": explaination
       };

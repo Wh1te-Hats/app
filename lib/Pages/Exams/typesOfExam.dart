@@ -14,18 +14,16 @@ class _typesOfExamState extends State<typesOfExam> {
   List<String> typesOfExam = [
     "School Based Exams",
     "Engineering Exams",
-    "Medical Exams",
-    "Govt. Job Exams",
-    "National Level Science Exams",
-    "UGC NET",
-    "MBA Entrance",
-    "Architecture",
-    "Central Applications",
-    "Central University Exam",
-    "Hotel Mangement",
-    "Law",
-    "Agriculture",
+    "Government Exams",
   ];
+
+  List<String> logo = [
+    'assets/images/stream.png',
+    'assets/images/student-2.png',
+    'assets/images/college.png',
+  ];
+
+  List<String> routes = ['schoolexams', 'engexams', 'govtexams'];
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +36,6 @@ class _typesOfExamState extends State<typesOfExam> {
         backgroundColor: MyApp.primaryColor,
         appBar: AppBar(
           title: const Text(MyApp.title),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-              iconSize: 35.0,
-              color: Colors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-          ],
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -54,20 +43,35 @@ class _typesOfExamState extends State<typesOfExam> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                customText(
-                  'Exams for You',
-                  MyApp.secondary,
-                  26.0,
-                  EdgeInsets.fromLTRB(20, 20, 20, 20),
-                  FontWeight.w400,
-                  FontStyle.normal,
+                Row(
+                  children: [
+                    SizedBox(width: 20),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 20, 0, 40),
+                      child: CircleAvatar(
+                        radius: 30,
+                        child: Image.asset(
+                          'assets/images/exam-1.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    customText(
+                      'Exams for You',
+                      Colors.white,
+                      30.0,
+                      EdgeInsets.fromLTRB(20, 20, 20, 40),
+                      FontWeight.bold,
+                      FontStyle.normal,
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: ListView.builder(
                     itemCount: typesOfExam.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        height: MediaQuery.of(context).size.height * 0.08,
+                        height: MediaQuery.of(context).size.height * 0.12,
                         margin: EdgeInsets.only(
                             top: 10.0, bottom: 5.0, left: 25.0, right: 25.0),
                         padding: EdgeInsets.only(
@@ -78,37 +82,39 @@ class _typesOfExamState extends State<typesOfExam> {
                           borderRadius: BorderRadius.circular(5.0),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white,
+                              color: MyApp.secondary,
                               spreadRadius: 1.0,
                             ),
                           ],
                         ),
                         child: GestureDetector(
-                          onTap: () => context.go('/examDetails'),
+                          onTap: () => context.go('/${routes[index]}'),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  customText(
-                                    typesOfExam[index],
-                                    Colors.white,
-                                    20.0,
-                                    EdgeInsets.fromLTRB(15, 0, 0, 0),
-                                    FontWeight.bold,
-                                    FontStyle.normal,
-                                  ),
-                                ],
+                              SizedBox(width: 10),
+                              CircleAvatar(
+                                radius: 25,
+                                child: Image.asset(
+                                  logo[index],
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              customText(
+                                typesOfExam[index],
+                                Colors.white,
+                                22.0,
+                                EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                FontWeight.bold,
+                                FontStyle.normal,
                               ),
                               IconButton(
                                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                 iconSize: 27,
                                 icon: const Icon(Icons.arrow_forward),
                                 color: MyApp.secondary,
-                                onPressed: () => context.go('/examDetails'),
+                                onPressed: () =>
+                                    context.go('/${routes[index]}'),
                               ),
                             ],
                           ),

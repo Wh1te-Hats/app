@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragati_v1/Widgets/customText.dart';
-
-import '../../Widgets/pieChart.dart';
 import '../../main.dart';
 
 class AptitudeHome extends StatefulWidget {
@@ -26,15 +24,6 @@ class _AptitudeHomeState extends State<AptitudeHome> {
         backgroundColor: MyApp.primaryColor,
         appBar: AppBar(
           title: const Text(MyApp.title),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-              iconSize: 35.0,
-              color: Colors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-          ],
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -51,7 +40,7 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                 Container(
                   margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.10,
+                    height: MediaQuery.of(context).size.height * 0.15,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -68,12 +57,42 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                         ),
                       ),
                       onPressed: () => context.go('/generalAptitude'),
-                      child: const Text(
-                        'General Aptitude',
-                        style: TextStyle(
-                          fontStyle: FontStyle.normal,
-                          fontSize: 24,
-                        ),
+                      child: Column(
+                        children: [
+                          customText(
+                            'General Aptitude',
+                            Colors.white,
+                            28.0,
+                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                            FontWeight.w400,
+                            FontStyle.normal,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              customText(
+                                'Start Preparation',
+                                MyApp.secondary,
+                                20.0,
+                                EdgeInsets.fromLTRB(20, 30, 0, 10),
+                                FontWeight.w400,
+                                FontStyle.normal,
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
+                                iconSize: 30.0,
+                                color: MyApp.secondary,
+                                onPressed: () {
+                                  context.go(
+                                    '/generalAptitude',
+                                  );
+                                },
+                                icon: const Icon(Icons.arrow_forward_ios_sharp),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -81,7 +100,7 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                 Container(
                   margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.10,
+                    height: MediaQuery.of(context).size.height * 0.15,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -97,13 +116,43 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                           ),
                         ),
                       ),
-                      onPressed: () => context.go('/welcome'),
-                      child: const Text(
-                        'Course Based',
-                        style: TextStyle(
-                          fontStyle: FontStyle.normal,
-                          fontSize: 24,
-                        ),
+                      onPressed: () => context.go('/courseBased'),
+                      child: Column(
+                        children: [
+                          customText(
+                            'Course Based',
+                            Colors.white,
+                            28.0,
+                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                            FontWeight.w400,
+                            FontStyle.normal,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              customText(
+                                'Start Preparation',
+                                MyApp.secondary,
+                                20.0,
+                                EdgeInsets.fromLTRB(20, 30, 0, 10),
+                                FontWeight.w400,
+                                FontStyle.normal,
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
+                                iconSize: 30.0,
+                                color: MyApp.secondary,
+                                onPressed: () {
+                                  context.go(
+                                    '/courseBased',
+                                  );
+                                },
+                                icon: const Icon(Icons.arrow_forward_ios_sharp),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -111,7 +160,7 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                 Container(
                   margin: EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 0.0),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.10,
+                    height: MediaQuery.of(context).size.height * 0.15,
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -127,13 +176,43 @@ class _AptitudeHomeState extends State<AptitudeHome> {
                           ),
                         ),
                       ),
-                      onPressed: () => context.go('/welcome'),
-                      child: const Text(
-                        'Career Based',
-                        style: TextStyle(
-                          fontStyle: FontStyle.normal,
-                          fontSize: 24,
-                        ),
+                      onPressed: () => context.go('/generalAptitude'),
+                      child: Column(
+                        children: [
+                          customText(
+                            'Career Based',
+                            Colors.white,
+                            28.0,
+                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                            FontWeight.w400,
+                            FontStyle.normal,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              customText(
+                                'Start Preparation',
+                                MyApp.secondary,
+                                20.0,
+                                EdgeInsets.fromLTRB(20, 30, 0, 10),
+                                FontWeight.w400,
+                                FontStyle.normal,
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.fromLTRB(0, 30, 20, 5),
+                                iconSize: 30.0,
+                                color: MyApp.secondary,
+                                onPressed: () {
+                                  context.go(
+                                    '/generalAptitude',
+                                  );
+                                },
+                                icon: const Icon(Icons.arrow_forward_ios_sharp),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),

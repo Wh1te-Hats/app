@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragati_v1/Widgets/customText.dart';
 import 'package:pragati_v1/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -11,11 +12,20 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
-  static const _menuTitles = [
+  static List<String> menuTitles = [
     'Dashboard',
-    'Career Recommendation',
-    'Aspirants',
-    'Find Jobs ',
+    'Courses',
+    'Community',
+    'Premium',
+    'Logout'
+  ];
+
+  static List<String> icons = [
+    'assets/images/dashboard.png',
+    'assets/images/pen-2.png',
+    'assets/images/community-2.png',
+    'assets/images/premium.png',
+    'assets/images/logout-2.png'
   ];
 
   static const _initialDelayTime = Duration(milliseconds: 50);
@@ -24,7 +34,7 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
   static const _buttonDelayTime = Duration(milliseconds: 150);
   static const _buttonTime = Duration(milliseconds: 500);
   final _animationDuration = _initialDelayTime +
-      (_staggerTime * _menuTitles.length) +
+      (_staggerTime * menuTitles.length) +
       _buttonDelayTime +
       _buttonTime;
 
@@ -45,7 +55,7 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
   }
 
   void _createAnimationIntervals() {
-    for (var i = 0; i < _menuTitles.length; ++i) {
+    for (var i = 0; i < menuTitles.length; ++i) {
       final startTime = _initialDelayTime + (_staggerTime * i);
       final endTime = startTime + _itemSlideTime;
       _itemSlideIntervals.add(
@@ -57,7 +67,7 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
     }
 
     final buttonStartTime =
-        Duration(milliseconds: (_menuTitles.length * 50)) + _buttonDelayTime;
+        Duration(milliseconds: (menuTitles.length * 50)) + _buttonDelayTime;
     final buttonEndTime = buttonStartTime + _buttonTime;
     _buttonInterval = Interval(
       buttonStartTime.inMilliseconds / _animationDuration.inMilliseconds,
@@ -112,7 +122,7 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
 
   List<Widget> _buildListItems() {
     final listItems = <Widget>[];
-    for (var i = 0; i < _menuTitles.length; ++i) {
+    for (var i = 0; i < menuTitles.length; ++i) {
       listItems.add(
         AnimatedBuilder(
           animation: _staggeredController,
@@ -144,37 +154,51 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
                   //   //     side: BorderSide(color: MyApp.secondary)),
                   // ),
                 ),
-                onPressed: () {
+                onPressed: () async {
                   if (i == 0) {
                     GoRouter.of(context).go('/dashboard');
-                  }
-                  else if(i == 1){
-                    GoRouter.of(context)
-          .go('/skills'); 
-                  }
-                  else if(i==2){
-                    GoRouter.of(context)
-          .go('/typesOfAspirants'); 
-                  }
-                  else{
-                    GoRouter.of(context)
-          .go('/jobUserInfo'); 
+                  } else if (i == 1) {
+                    GoRouter.of(context).go('/skills');
+                  } else if (i == 2) {
+                    GoRouter.of(context).go('/communityChannel');
+                  } else if (i == 3) {
+                    GoRouter.of(context).go('/premium');
+                  } else {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    await prefs.remove('user_id');
+                    await prefs.remove('grade');
+                    await prefs.remove('name');
+
+                    print('user_id removed from SharedPreferences');
+                    GoRouter.of(context).go('/signin');
                   }
                 },
                 child: Container(
                   width: double.infinity,
                   margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
-                  child: customText(
-                      _menuTitles[i],
-                      Colors.white,
-                      24.0,
-                      EdgeInsets.fromLTRB(0, 5, 0, 5),
-                      FontWeight.w400,
-                      FontStyle.normal),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        child: Image.asset(
+                          icons[i],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      customText(
+                          menuTitles[i],
+                          Colors.white,
+                          24.0,
+                          EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          FontWeight.w400,
+                          FontStyle.normal),
+                    ],
+                  ),
                 ),
               ),
               Divider(
-                thickness: 04,
+                thickness: 02,
                 color: MyApp.secondary,
               ),
             ],

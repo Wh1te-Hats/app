@@ -4,6 +4,7 @@ import 'package:pragati_v1/Providers/userInfoProvider.dart';
 import 'package:pragati_v1/Providers/userProvider.dart';
 import 'package:pragati_v1/apiService.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Widgets/customText.dart';
 import '../main.dart';
 
@@ -40,7 +41,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     userProvider = Provider.of<UserProvider>(context);
-    userInfoProvider = UserInfoProvider();
+    userInfoProvider =  Provider.of<UserInfoProvider>(context);
     // Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return WillPopScope(
       onWillPop: () async {
@@ -492,6 +493,11 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           )),
                         ),
                         onPressed: () async {
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          prefs.setString('grade', selectedGrade);
+                          prefs.setString('name', _textFieldController1.text);
+
                           userInfoProvider.name = _textFieldController1;
                           userInfoProvider.city = _textFieldController3;
                           userInfoProvider.state = _textFieldController3;
@@ -500,7 +506,6 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           userInfoProvider.board = selectedItem;
                           await apiCollege().postUserInfo(
                               userInfoProvider, userProvider.userId);
-
                           context.go('/home');
                         },
                         child: const Text(

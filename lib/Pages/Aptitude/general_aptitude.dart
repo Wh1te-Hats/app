@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pragati_v1/Providers/timeProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../../Widgets/customText.dart';
 import '../../main.dart';
@@ -12,8 +14,12 @@ class GeneralAptitude extends StatefulWidget {
 }
 
 class _GeneralAptitudeState extends State<GeneralAptitude> {
+
+  late TimeProvider timeProvider;
+
   @override
   Widget build(BuildContext context) {
+    timeProvider = Provider.of<TimeProvider>(context);
     return WillPopScope(
       onWillPop: () async {
         context.go('/aptitudeHome');
@@ -23,15 +29,7 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
         backgroundColor: MyApp.primaryColor,
         appBar: AppBar(
           title: const Text(MyApp.title),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.fromLTRB(0, 0, 30, 10),
-              iconSize: 35.0,
-              color: Colors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-          ],
+         
         ),
         body: Center(
           child: Column(
@@ -62,8 +60,10 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () =>
-                        context.go('/test', extra: 'general knowledge'),
+                    onPressed: () {
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'general knowledge');
+                      },
                     child: const Text(
                       'General Knowledge',
                       style: TextStyle(
@@ -92,9 +92,12 @@ class _GeneralAptitudeState extends State<GeneralAptitude> {
                         ),
                       ),
                     ),
-                    onPressed: () => context.go('/test', extra: 'dummy'),
+                    onPressed: () {
+                      timeProvider.startTest();
+                      context.go('/test', extra: 'logical reasoning');
+                      },
                     // onPressed: () => context.go('/currentAnalysis' ),
-                    child: const Text(
+                    child: Text(
                       'Logical Reasoning',
                       style: TextStyle(
                         fontStyle: FontStyle.normal,

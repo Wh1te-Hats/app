@@ -1,57 +1,54 @@
 import 'dart:convert';
 
-List<college> collegeFromJson(String str) => List<college>.from(json.decode(str).map((x) => college.fromJson(x)));
+List<college> collegeFromJson(String str) =>
+    List<college>.from(json.decode(str).map((x) => college.fromJson(x)));
 
-String collegeToJson(List<college> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String collegeToJson(List<college> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class college {
-    college({
-        required this.id,
-        required this.logo,
-        required this.name,
-        required this.location,
-        required this.information,
-        required this.ranking,
-        required this.fee,
-        required this.duration,
-        required this.examAccepted,
-        required this.eligibility,
-    });
+  college({
+    required this.name,
+    required this.icon,
+    required this.fees,
+    required this.duration,
+    required this.examAccepted,
+    required this.eligibility,
+    required this.ranking,
+    required this.highestPackage,
+    required this.averagePackage,
+  });
 
-    int id;
-    String logo;
-    String name;
-    String location;
-    String information;
-    String ranking;
-    String fee;
-    String duration;
-    String examAccepted;
-    String eligibility;
+  String name;
+  String icon;
+  String fees;
+  String duration;
+  String examAccepted;
+  String eligibility;
+  String ranking;
+  String highestPackage;
+  String averagePackage;
 
-    factory college.fromJson(Map<String, dynamic> json) => college(
-        id: json["id"],
-        logo: json["logo"],
-        name: json["name"],
-        location: json["location"],
-        information: json["information"],
-        ranking: json["ranking"],
-        fee: json["fee"],
-        duration: json["duration"],
-        examAccepted: json["exam_accepted"],
-        eligibility: json["eligibility"],
-    );
+  factory college.fromJson(Map<String, dynamic> json) => college(
+      name: json["college_name"],
+      icon: json["college_icon"],
+      fees: json["fees"],
+      duration: json["duration"],
+      examAccepted: json["exam"],
+      eligibility: json["eligibility"],
+      ranking: json["college_nirf"],
+      highestPackage: json["highest_package"],
+      averagePackage: json["average_package"]);
 
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "logo": logo,
-        "name": name,
-        "location": location,
-        "information": information,
-        "ranking": ranking,
-        "fee": fee,
-        "duration": duration,
-        "exam_accepted": examAccepted,
+  Map<String, dynamic> toJson() => {
+        "college_name": name,
+        "college_icon": icon,
+        "fees": fees,
+        "duartion": duration,
+        "exam": examAccepted,
         "eligibility": eligibility,
-    };
+        "college_nirf": ranking,
+        "highest_package": highestPackage,
+        "average_package": averagePackage,
+      };
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:pragati_v1/Models/college.dart';
 import '../../Widgets/customText.dart';
 import '../../main.dart';
 
 class CollegeInfoPage extends StatefulWidget {
-  const CollegeInfoPage({Key? key}) : super(key: key);
+  final college collegeInfo;
+
+  CollegeInfoPage({super.key, required this.collegeInfo});
 
   @override
   State<CollegeInfoPage> createState() => _CollegeInfoPageState();
@@ -14,9 +16,10 @@ class CollegeInfoPage extends StatefulWidget {
 class _CollegeInfoPageState extends State<CollegeInfoPage> {
   @override
   Widget build(BuildContext context) {
+    college info = widget.collegeInfo;
     // Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return WillPopScope(
-       onWillPop:()async{
+      onWillPop: () async {
         context.go('/typesOfColleges');
         return false;
       },
@@ -44,37 +47,36 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
               ),
               CircleAvatar(
                 radius: 35,
-                child: Image.network(
-                  "https://static.zollege.in/public/college_data/images/logos/1434977143jpjpjpjpj.jpg?tr=h-60,w-60,c-force",
-                  fit: BoxFit.cover,
-                ),
+                child: Image.network(info.icon, fit: BoxFit.cover, errorBuilder:
+                    (BuildContext context, Object error,
+                        StackTrace? stackTrace) {
+                  // This function will be called when there is an error loading the image
+                  // You can return a fallback image or any other widget here
+                  return Image.asset(
+                    'assets/images/IIT_Madras_Logo.svg.png', // Replace with the path to your fallback image
+                    fit: BoxFit.cover,
+                  );
+                }),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   customText(
-                      'IIT',
+                      info.name,
                       Colors.white,
                       24.0,
-                      EdgeInsets.fromLTRB(31, 27, 31, 02),
-                      FontWeight.bold,
-                      FontStyle.normal),
-                  customText(
-                      'Delhi',
-                      Colors.white,
-                      24.0,
-                      EdgeInsets.fromLTRB(31, 0, 31, 02),
+                      EdgeInsets.fromLTRB(31, 27, 31, 12),
                       FontWeight.bold,
                       FontStyle.normal),
                   Row(
                     children: [
                       IconButton(
-                        padding: EdgeInsets.fromLTRB(134, 0, 0, 0),
+                        padding: EdgeInsets.fromLTRB(124, 0, 0, 0),
                         iconSize: 27,
                         icon: const Icon(Icons.location_on_outlined),
                         color: MyApp.secondary,
-                        onPressed: () => context.go('/CollegeInfoPage'),
+                        onPressed: () {},
                       ),
                       customText(
                           'New Delhi, India',
@@ -87,137 +89,7 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
                   ),
                 ],
               ),
-              customText(
-                  'Information',
-                  Colors.white,
-                  20.0,
-                  EdgeInsets.fromLTRB(0, 35, 261, 20),
-                  FontWeight.bold,
-                  FontStyle.normal),
-              customText(
-                  'IIT Delhi was established in 1961. First, it was established as the College of Engineering, and later on, it was declared as an Institute of National Importance under the ‘Institute of Technology Act, 1963’. The Government of India has given the status of Deemed University, the college is autonomous and can take its own decisions about the academic policy, examinations and degrees.',
-                  Colors.white,
-                  16.0,
-                  EdgeInsets.fromLTRB(22, 5, 22, 40),
-                  FontWeight.w400,
-                  FontStyle.normal),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.60,
-                margin: EdgeInsets.only(
-                    top: 0.0, bottom: 25.0, left: 25.0, right: 25.0),
-                padding: EdgeInsets.only(
-                    top: 16.0, bottom: 5.0, left: 5.0, right: 5.0),
-                width: 377.0,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(10, 30, 46, 0.6),
-                  borderRadius: BorderRadius.circular(15.0),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 1,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    customText(
-                        'B.Tech',
-                        Colors.white,
-                        28.0,
-                        EdgeInsets.fromLTRB(22, 5, 0, 20),
-                        FontWeight.bold,
-                        FontStyle.normal),
-                    Row(
-                      children: [
-                        customText(
-                            'Ranking:',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                        customText(
-                            '1st year Fees',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        customText(
-                            '# 2 NIRF',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                        customText(
-                            'Rs 2,20,000/-',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        customText(
-                            'Duration:',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                        customText(
-                            'Exams:',
-                            Colors.white,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 5, 0, 7),
-                            FontWeight.w400,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        customText(
-                            '4 Years.',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(22, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                        customText(
-                            'JEE Advanced',
-                            MyApp.secondary,
-                            20.0,
-                            EdgeInsets.fromLTRB(99, 0, 0, 40),
-                            FontWeight.bold,
-                            FontStyle.normal),
-                      ],
-                    ),
-                    customText(
-                        'Eligibiilty',
-                        Colors.white,
-                        20.0,
-                        EdgeInsets.fromLTRB(22, 5, 0, 7),
-                        FontWeight.w400,
-                        FontStyle.normal),
-                    customText(
-                        '10+2 with 75% + JEE Advanced',
-                        MyApp.secondary,
-                        20.0,
-                        EdgeInsets.fromLTRB(22, 0, 152, 20),
-                        FontWeight.bold,
-                        FontStyle.normal),
-                  ],
-                ),
-              ),
              
-      
             ],
           ),
         ),
@@ -257,6 +129,3 @@ class _CollegeInfoPageState extends State<CollegeInfoPage> {
     // );
   }
 }
-
-
-

@@ -74,11 +74,22 @@ class _jobListState extends State<jobList> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // Show a loading indicator while waiting for data
-              return Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 5,
-                  color: Colors.white,
-                ),
+              return Column(
+                children: [
+                  Center(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 5,
+                      color: Colors.white,
+                    ),
+                  ),
+                  customText(
+                      'Searching for the Best Matches ',
+                      Colors.white,
+                      24.0,
+                      EdgeInsets.fromLTRB(25, 20, 28, 10),
+                      FontWeight.w400,
+                      FontStyle.normal),
+                ],
               );
             } else if (snapshot.hasError) {
               // Handle errors
@@ -108,11 +119,17 @@ class _jobListState extends State<jobList> {
                       itemCount: jobList!.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () => context.go('/JobInfo'),
+                          onTap: () {
+                            Uri uri = Uri.parse(jobList![index].link);
+                            launchUrl(uri);
+                          },
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.25,
                             margin: EdgeInsets.only(
-                                top: 10.0, bottom: 25.0, left: 25.0, right: 25.0),
+                                top: 10.0,
+                                bottom: 25.0,
+                                left: 25.0,
+                                right: 25.0),
                             padding: EdgeInsets.only(
                                 top: 16.0, bottom: 5.0, left: 5.0, right: 5.0),
                             width: 377.0,
@@ -165,8 +182,9 @@ class _jobListState extends State<jobList> {
                                       icon: const Icon(Icons.link),
                                       color: MyApp.secondary,
                                       onPressed: () {
-                                          Uri uri = Uri.parse(jobList![index].link);
-                                          launchUrl(uri);   
+                                        Uri uri =
+                                            Uri.parse(jobList![index].link);
+                                        launchUrl(uri);
                                       },
                                     ),
                                   ],

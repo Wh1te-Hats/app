@@ -4,21 +4,11 @@ import 'package:pragati_v1/main.dart';
 
 class BarGraphWidget extends StatelessWidget {
   // Example data for the bar graph
-  final List<double> data = [100, 80, 40, 90, 50, 100, 80, 90];
-  final List<double> marksIntervals = [
-    100,
-    80,
-    40,
-    90,
-    50,
-    100,
-    80,
-    30,
-    90,
-    100
-  ];
+  final List<double> data;
 
-  final List<String> generalCategory = ["GK", "LR", "AR", "VR", "NVR", "VA"];
+  final List<String> category;
+
+  BarGraphWidget({super.key, required this.data, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +16,11 @@ class BarGraphWidget extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         margin: EdgeInsets.fromLTRB(25, 40, 20, 10),
-        width: data.length *
-            75.0, // Width of the container based on the number of bars
-        height: 400.0, // Height of the container
+        width: 550.0, // Width of the container based on the number of bars
+        height: 350.0, // Height of the container
         child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             customText(
-                    'Perfomance Analysis',
-                    Colors.white,
-                    24.0,
-                    EdgeInsets.fromLTRB(25, 10, 28, 02),
-                    FontWeight.w400,
-                    FontStyle.normal),
             Row(
               children: [
                 Column(
@@ -146,12 +129,12 @@ class BarGraphWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: List.generate(
-                  generalCategory.length,
+                  category.length,
                   (index) => customText(
-                      generalCategory[index],
+                      category[index],
                       Colors.white,
                       24.0,
-                      EdgeInsets.fromLTRB(0, 0,30, 0),
+                      EdgeInsets.fromLTRB(0, 0, 30, 0),
                       FontWeight.w400,
                       FontStyle.normal),
                 ),

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pragati_v1/Models/aptitude.dart';
 import 'package:pragati_v1/Models/career.dart';
+import 'package:pragati_v1/Models/courseList.dart';
+import 'package:pragati_v1/Models/exam.dart';
 import 'package:pragati_v1/Models/job.dart';
 import 'package:pragati_v1/Providers/userInfoProvider.dart';
 import 'Models/college.dart';
@@ -41,9 +43,39 @@ class apiCollege with ChangeNotifier {
     return null;
   }
 
+  Future<List<Exam>?> getExamDetails(String route) async {
+    var client = http.Client();
+
+    var uri =
+        Uri.parse('https://3905-106-76-230-13.ngrok-free.app/exams/$route');
+
+    var response = await client.get(uri);
+
+    if (response.statusCode == 200) {
+      var json = response.body;
+      return examFromJson(json);
+    }
+    return null;
+  }
+
+  Future<List<CourseList>> getCourseList(String grade) async {
+    var client = http.Client();
+
+    var uri = Uri.parse(
+        'https://3905-106-76-230-13.ngrok-free.app/aptitude/course/$grade');
+
+    var response = await client.get(uri);
+
+    if (response.statusCode == 200) {
+      var json = response.body;
+      return courseListFromJson(json);
+    }
+    return [];
+  }
+
   Future<List<CareerModel>?> postSkills(List<String> skills) async {
     final url = Uri.parse(
-        'https://b5bb-122-172-87-1.ngrok-free.app/career'); // Replace with your actual endpoint URL
+        'https://3905-106-76-230-13.ngrok-free.app/career'); // Replace with your actual endpoint URL
 
     final Map<String, dynamic> data = {
       'skill': skills,
@@ -77,7 +109,7 @@ class apiCollege with ChangeNotifier {
   Future<List<Question>> postGeneralAptitude(
       String userId, String topic) async {
     final String url =
-        'https://b5bb-122-172-87-1.ngrok-free.app/aptitude/general/dummy'; // Replace with your API endpoint
+        'https://3905-106-76-230-13.ngrok-free.app/aptitude/general'; // Replace with your API endpoint
 
     final Map<String, String> data = {
       'user_id': userId,
@@ -100,9 +132,36 @@ class apiCollege with ChangeNotifier {
     }
   }
 
+  Future<List<Question>> postCourseAptitude(
+      String grade, String subject, String chapter) async {
+    final String url =
+        'https://3905-106-76-230-13.ngrok-free.app/aptitude/course'; // Replace with your API endpoint
+
+    final Map<String, String> data = {
+      'grade': grade,
+      'subject': subject,
+      'chapter': chapter,
+    };
+
+    var response = await http.post(
+      Uri.parse(url),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(data),
+    );
+
+    if (response.statusCode == 200) {
+      var jsonResponse = response.body;
+      return questionFromJson(jsonResponse);
+    } else {
+      throw Exception('Failed to post request');
+    }
+  }
+
   Future<List<Job>> postJobInfo(List<String> jobUserInfo) async {
     final String url =
-        'https://b5bb-122-172-87-1.ngrok-free.app/job'; // Replace with your API endpoint
+        'https://3905-106-76-230-13.ngrok-free.app/job'; // Replace with your API endpoint
 
     final Map<String, String> data = {
       "role": jobUserInfo[0],
@@ -120,21 +179,23 @@ class apiCollege with ChangeNotifier {
 
     if (response.statusCode == 200) {
       var jsonResponse = response.body;
+      print(jsonResponse);
       return jobsFromJson(jsonResponse);
     } else {
       throw Exception('Failed to post request');
     }
   }
 
-  Future<String> fetchChatbotResponse(String userMessage) async {
+  Future<dynamic> fetchChatbotResponse(
+      String userMessage, String flow, int num) async {
     final body = {
       'message': userMessage,
-      'flow': 'EMPTY',
-      'num': -1,
+      'flow': flow,
+      'num': num,
     };
 
     var response = await http.post(
-      Uri.parse('https://cff2-122-172-84-239.ngrok-free.app/chat'),
+      Uri.parse('https://3905-106-76-230-13.ngrok-free.app/chat'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -146,7 +207,7 @@ class apiCollege with ChangeNotifier {
       // String responseBody = utf8.decode(response.bodyBytes);
       final Map<String, dynamic> res = json.decode(response.body);
       print(res['message']);
-      return 'PRAGATI : ' + res['message']!;
+      return res;
     } else {
       // throw Exception('Failed to load chatbot response');
       return 'Failed to load chatbot response';
@@ -157,6 +218,8 @@ class apiCollege with ChangeNotifier {
       UserInfoProvider userInfoProvider, String? id) async {
     final body = {
       'id': id,
+      'community_id': [],
+      'career_goal': [],
       'name': userInfoProvider.name.text,
       'city': userInfoProvider.city.text,
       'state': userInfoProvider.state.text,
@@ -166,7 +229,7 @@ class apiCollege with ChangeNotifier {
     };
 
     var response = await http.post(
-        Uri.parse('https://cff2-122-172-84-239.ngrok-free.app/register'),
+        Uri.parse('https://3905-106-76-230-13.ngrok-free.app/register'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

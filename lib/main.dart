@@ -1,12 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pragati_v1/Providers/chartbotProvider.dart';
+import 'package:pragati_v1/Providers/timeProvider.dart';
+import 'package:pragati_v1/Providers/userInfoProvider.dart';
 import 'package:pragati_v1/Providers/userProvider.dart';
 import 'package:pragati_v1/Routes/routes.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
-    WidgetsFlutterBinding.ensureInitialized();
+void main() async{    WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
@@ -73,7 +74,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => chatbotProvider()),
-        ChangeNotifierProvider(create: (context) => UserProvider())
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => TimeProvider()),
+        ChangeNotifierProvider(create: (context) => UserInfoProvider()),
       ],
       child: MaterialApp.router(
         title: MyApp.title,
